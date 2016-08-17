@@ -204,8 +204,8 @@ port(
     mgt_clk_n_i             : in std_logic;
     
     -- the first link is the track and control link, the other 4 are the trigger links TODO: make different name for trigger links
-    mgt_rx_p_i        : in std_logic_vector(4 downto 0);
-    mgt_rx_n_i        : in std_logic_vector(4 downto 0);
+    mgt_rx_p_i        : in std_logic_vector(0 downto 0);
+    mgt_rx_n_i        : in std_logic_vector(0 downto 0);
     mgt_tx_p_o        : out std_logic_vector(4 downto 0);
     mgt_tx_n_o        : out std_logic_vector(4 downto 0)
 
@@ -234,11 +234,13 @@ architecture Behavioral of optohybrid_top is
     
     --== SBit cluster packer ==--
     
+	signal sbit_overflow        : std_logic;
     signal vfat_sbit_clusters   : sbit_cluster_array_t(7 downto 0);
     
     --== Global signals ==--
 
     signal ref_clk              : std_logic;
+    signal mgt_refclk           : std_logic; 
     signal reset                : std_logic;    
 
     --== GTX ==--
@@ -333,19 +335,20 @@ begin
     port map(
 		mgt_refclk_n_i  => mgt_clk_n_i,
 		mgt_refclk_p_i  => mgt_clk_p_i,
+		mgt_refclk_o    => mgt_refclk,
         ref_clk_i       => ref_clk,
 		reset_i         => reset,
         gtx_clk_o       => gtx_clk,
         rec_clk_o       => gtx_rec_clk,
-        gtx_tx_kchar_i  => gtx_tx_kchar,
-        gtx_tx_data_i   => gtx_tx_data,
-        gtx_rx_kchar_o  => gtx_rx_kchar,
-        gtx_rx_data_o   => gtx_rx_data,
+        gtx_tx_kchar_i  => gtx_tx_kchar( 1 downto 0),
+        gtx_tx_data_i   => gtx_tx_data (15 downto 0),
+        gtx_rx_kchar_o  => gtx_rx_kchar( 1 downto 0),
+        gtx_rx_data_o   => gtx_rx_data (15 downto 0),
         gtx_rx_error_o  => gtx_rx_error,     
-		rx_n_i          => mgt_rx_n_i,
-		rx_p_i          => mgt_rx_p_i,
-		tx_n_o          => mgt_tx_n_o,
-		tx_p_o          => mgt_tx_p_o
+		rx_n_i          => mgt_rx_n_i(0 downto 0),
+		rx_p_i          => mgt_rx_p_i(0 downto 0),
+		tx_n_o          => mgt_tx_n_o(0 downto 0),
+		tx_p_o          => mgt_tx_p_o(0 downto 0)
 	);
     
     --==========--
@@ -515,21 +518,48 @@ begin
         qpll_locked_i       => qpll_locked_b,
         qpll_pll_locked_i   => qpll_pll_locked_b
     );
-    
+
     --=========================--
     --== SBit cluster packer ==--
     --=========================--
-    
+
     -- This module handles the SBits
     sbits_inst : entity work.sbits
-    port map(        
+    port map(
         ref_clk_i               => gtx_clk,
-        reset_i                 => reset,        
-        vfat2_sbits_i           => vfat2_sbits_b,  
-        vfat2_sbit_mask_i       => vfat2_sbit_mask,        
-        vfat_sbit_clusters_o    => vfat_sbit_clusters
+        reset_i                 => reset,
+        vfat2_sbits_i           => vfat2_sbits_b,
+        vfat2_sbit_mask_i       => vfat2_sbit_mask,
+        vfat_sbit_clusters_o    => vfat_sbit_clusters,
+        overflow_o              => sbit_overflow
     );
-    
+
+    --=================================--
+    --== Fixed latency trigger links ==--
+    --=================================--
+
+    trigger_inst : entity work.trigger
+    port map (
+        mgt_refclk => mgt_refclk,
+
+        ref_clk    => ref_clk,
+        reset      => reset,
+
+        trg_tx_p   => mgt_tx_p_o (4 downto 1),
+        trg_tx_n   => mgt_tx_n_o (4 downto 1),
+
+        cluster0   => vfat_sbit_clusters(0),
+        cluster1   => vfat_sbit_clusters(1),
+        cluster2   => vfat_sbit_clusters(2),
+        cluster3   => vfat_sbit_clusters(3),
+        cluster4   => vfat_sbit_clusters(4),
+        cluster5   => vfat_sbit_clusters(5),
+        cluster6   => vfat_sbit_clusters(6),
+        cluster7   => vfat_sbit_clusters(7),
+
+        overflow   => sbit_overflow
+    );
+
     --=============--
     --== Buffers ==--
     --=============--
