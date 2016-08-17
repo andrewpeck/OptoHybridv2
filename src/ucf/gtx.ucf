@@ -15,7 +15,7 @@ NET "mgt_rx_n_i<0>"   LOC = B6;
 NET "mgt_tx_p_o<0>"   LOC = A3;
 NET "mgt_tx_n_o<0>"   LOC = A4;
 
-# trigger links
+# trigger links // gtx_x70y150
 NET "mgt_tx_p_o<4>"    LOC = F1;
 NET "mgt_tx_n_o<4>"    LOC = F2;
 #NET "mgt_rx_p_i<4>"    LOC = J3;

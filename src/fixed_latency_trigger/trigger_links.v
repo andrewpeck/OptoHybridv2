@@ -5,8 +5,8 @@ module trigger_links (
 
   input reset, 
 
-  output [3:0] trg_tx_n, 
   output [3:0] trg_tx_p, 
+  output [3:0] trg_tx_n, 
 
   input [13:0] cluster0, 
   input [13:0] cluster1, 
@@ -56,8 +56,8 @@ gem_fiber_out  gem_fibers_out   (
   .RST                 (1'b0),           // Manual only
   .TRG_SIGDET          (),               // from IPAD to IBUF.  N/A?
   .TRG_TDIS            (),               // OBUF output, for what?  N/A?
-  .TRG_TX_N            (trg_tx_n[igem]), // pick a fiber
   .TRG_TX_P            (trg_tx_p[igem]), // pick a fiber
+  .TRG_TX_N            (trg_tx_n[igem]), // pick a fiber
 
   .GEM_DATA            (link[igem][55:0]),
   .GEM_OVERFLOW        (overflow),
