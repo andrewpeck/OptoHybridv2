@@ -3,6 +3,10 @@ module trigger_links (
   input mgt_refclk, // 160 MHz QPLL Clock
   input ref_clk,    // 40 MHz QPLL Clock
 
+  output clk_40, 
+  output clk_80, 
+  output clk_160, 
+
   input reset, 
 
   output [3:0] trg_tx_p, 
@@ -40,7 +44,9 @@ SRL16E #(.INIT(16'h7FFF)) SRL16TXPLL(
 );
 
 bufg_x2div2plus snap_mmcm (
-  .CLK_IN1                (tx_out_clk[0]    ), // 80 MHz
+//.CLK_IN1                (tx_out_clk[0]    ), // 80 MHz
+  .CLK_IN1                (ref_clk          ), // 40 MHz
+
   .CLK_OUT3               (ck40             ), // 40 MHz
   .CLK_OUT1               (usrclk2          ), // 80 MHz
   .CLK_OUT2               (usrclk           ), // 160 MHz
@@ -48,6 +54,10 @@ bufg_x2div2plus snap_mmcm (
   .LOCKED                 (lock40           ),
   .CLK_OUT3BUF            (ck40buf          )  // from Tx GTX PLL out clk
 ) ;
+
+assign clk_40  = ck40;
+assign clk_80  = usrclk2;
+assign clk_160 = usrclk;
 
 genvar igem; 
 generate
@@ -65,7 +75,7 @@ gem_fiber_out  gem_fibers_out   (
   .TRG_TX_REFCLK       (mgt_refclk),          // QPLL 160 from MGT clk
   .TRG_TXUSRCLK        (usrclk),              // get 160 from TXOUTCLK (times 2)
   .TRG_CLK80           (usrclk2),             // get 80 from TXOUTCLK
-  .TRG_GTXTXRST        (1'b0     ),           // maybe Manual "reset" only
+  .TRG_GTXTXRST        (1'b0),                // maybe Manual "reset" only
   .TRG_TX_PLLRST       (txpll_rst),           // Tie LOW.
   .TRG_RST             (reset),               // gtx_reset =  PBrst | !TxSyncDone | !RxSyncDone
   .ENA_TEST_PAT        (1'b0),                // HIGH for PRBS! (Low will send data from GxC registers)  Use This Later, send low-rate pattern.

@@ -1,26 +1,26 @@
 `timescale 1ns / 1ps
 
 module   gem_fiber_out #(parameter SIM_SPEEDUP = 0) (
-	output        TRG_TX_P,
+	input         RST,           // PRBS Reset
+	input         TRG_SIGDET,    // ??
+	output        TRG_TDIS,      // N/A
 	output        TRG_TX_N,
+	output        TRG_TX_P,
 
   input [55:0]  GEM_DATA,      // 56 bit GEM data
   input         GEM_OVERFLOW,  //  1 bit GEM has more than 8 clusters
 
 	input         TRG_TX_REFCLK, // 160 MHz Reference Clock from QPLL
-	output        TRG_TXOUTCLK,  // 80  MHz GTX clock output
 	input         TRG_TXUSRCLK,  // 160 MHz (derived from TXOUTCLK)
 	input         TRG_CLK80,     // 80  MHz (derived from TXOUTCLK)
-
-	input         RST,           // PRBS Reset
-	input         TRG_RST,       // Data Reset
 	input         TRG_GTXTXRST,  // GTX Transmit Data Reset
+	output        TRG_TXOUTCLK,  // 80  MHz GTX clock output
 	input         TRG_TX_PLLRST, // use !rxpll_lock ?
+	input         TRG_RST,       // Data Reset
 
-	input         TRG_SIGDET,    // ??
-	output        TRG_TDIS,      // N/A
-	input         ENA_TEST_PAT,  // HIGH for PRBS!  (Low will send data from GxC registers)
 	input         INJ_ERR,       // PRBS Error Inject
+
+	input         ENA_TEST_PAT,  // HIGH for PRBS!  (Low will send data from GxC registers)
 	output        TRG_TX_PLL_LOCK,
 	output        TRG_TXRESETDONE,
 	output        TX_SYNC_DONE,

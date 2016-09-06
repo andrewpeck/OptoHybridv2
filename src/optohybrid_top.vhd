@@ -240,6 +240,11 @@ architecture Behavioral of optohybrid_top is
     --== Global signals ==--
 
     signal ref_clk              : std_logic;
+
+    signal clk_40               : std_logic;
+    signal clk_80               : std_logic;
+    signal clk_160              : std_logic;
+
     signal mgt_refclk           : std_logic; 
     signal reset                : std_logic;    
 
@@ -526,7 +531,7 @@ begin
     -- This module handles the SBits
     sbits_inst : entity work.sbits
     port map(
-        ref_clk_i               => gtx_clk,
+        ref_clk_i               => clk_160,
         reset_i                 => reset,
         vfat2_sbits_i           => vfat2_sbits_b,
         vfat2_sbit_mask_i       => vfat2_sbit_mask,
@@ -540,9 +545,14 @@ begin
 
     trigger_inst : entity work.trigger
     port map (
-        mgt_refclk => mgt_refclk,
+        mgt_refclk => mgt_refclk, -- 160 MHz Reference Clock from QPLL
 
-        ref_clk    => ref_clk,
+        ref_clk    => ref_clk, -- 40 MHz Clock from QPLL
+
+        clk_40     => clk_40,  -- 40 MHz Clock Derived from QPLL
+        clk_80     => clk_80,  -- 80 MHz Clock Derived from QPLL
+        clk_160    => clk_160, -- 160 MHz Clock Derived from QPLL
+
         reset      => reset,
 
         trg_tx_p   => mgt_tx_p_o (4 downto 1),
