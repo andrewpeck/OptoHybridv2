@@ -23,8 +23,11 @@ use work.types_pkg.all;
 entity sbits is
 port(
     
-    ref_clk_i               : in std_logic;
+    clk160_i                : in std_logic;
+    clk40_i                 : in std_logic;
     reset_i                 : in std_logic;
+
+    oneshot_en_i            : in std_logic;
     
     vfat2_sbits_i           : in sbits_array_t(23 downto 0);    
     vfat2_sbit_mask_i       : in std_logic_vector(23 downto 0);
@@ -50,9 +53,11 @@ begin
 
     cluster_packer_inst : entity work.cluster_packer_vfat2
     port map(
-        clock4x             => ref_clk_i,
+        clock4x             => clk160_i,
+        clock1x             => clk40_i, 
         global_reset        => reset_i,
         truncate_clusters   => '0',
+        oneshot_en          => oneshot_en_i,
         vfat0               => vfat2_sbits_masked(0),
         vfat1               => vfat2_sbits_masked(1),
         vfat2               => vfat2_sbits_masked(2),
