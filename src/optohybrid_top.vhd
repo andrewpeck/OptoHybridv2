@@ -519,17 +519,19 @@ begin
     --=========================--
     --== SBit cluster packer ==--
     --=========================--
-    
+
     -- This module handles the SBits
     sbits_inst : entity work.sbits
-    port map(        
-        ref_clk_i               => gtx_clk,
-        reset_i                 => reset,        
-        vfat2_sbits_i           => vfat2_sbits_b,  
-        vfat2_sbit_mask_i       => vfat2_sbit_mask,        
-        vfat_sbit_clusters_o    => vfat_sbit_clusters
+    port map(
+        clk160_i                => gtx_clk,
+        clk40_i                 => ref_clk,
+        reset_i                 => reset,
+        vfat2_sbits_i           => vfat2_sbits_b,
+        vfat2_sbit_mask_i       => vfat2_sbit_mask,
+        vfat_sbit_clusters_o    => vfat_sbit_clusters,
+        oneshot_en_i            => ('0')
     );
-    
+
     --=============--
     --== Buffers ==--
     --=============--
