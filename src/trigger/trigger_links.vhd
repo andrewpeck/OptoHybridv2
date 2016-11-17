@@ -8,6 +8,8 @@ entity trigger_links is
 port(
     mgt_refclk : in  std_logic;
 
+	gtx_reset  : in  std_logic;
+
     clk_40     : in  std_logic;
     clk_80     : in  std_logic;
     clk_160    : in  std_logic;
@@ -37,6 +39,7 @@ begin
 Inst_trigger_links: entity work.trigger_links_v
 port map(
     mgt_refclk => mgt_refclk,
+	gtx_reset  => gtx_reset,
     clk_40     => clk_40,  -- 40 MHz Clock Derived from QPLL
     clk_80     => clk_80,  -- 80 MHz Clock Derived from QPLL
     clk_160    => clk_160, -- 160 MHz Clock Derived from QPLL

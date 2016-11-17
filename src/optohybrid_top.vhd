@@ -267,6 +267,7 @@ architecture Behavioral of optohybrid_top is
     --== GTX ==--
     
     signal gtx_clk              : std_logic;    
+	signal gtx_reset            : std_logic;
     signal gtx_tk_error         : std_logic;
     signal gtx_tr_error         : std_logic;
     signal gtx_evt_sent         : std_logic;
@@ -483,11 +484,13 @@ begin
 
     trigger_links_inst : entity work.trigger_links
     port map (
-        mgt_refclk => mgt_refclk, -- 160 MHz Reference Clock from QPLL
+        mgt_refclk => mgt_refclk, -- 160 MHz Reference Clock 
 
-        clk_40     => clk_1x,  -- 40 MHz Clock Derived from QPLL
-        clk_80     => clk_2x,  -- 80 MHz Clock Derived from QPLL
-        clk_160    => clk_4x, -- 160 MHz Clock Derived from QPLL
+		gtx_reset  => gtx_reset,
+
+        clk_40     => clk_1x,  -- 40 MHz Clock 
+        clk_80     => clk_2x,  -- 80 MHz Clock 
+        clk_160    => clk_4x, -- 160 MHz Clock 
 
         reset      => reset,
 

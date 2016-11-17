@@ -2,6 +2,8 @@ module trigger_links_v (
 
   input mgt_refclk, // 160 MHz QPLL Clock
 
+	input gtx_reset,
+
   input clk_40,
   input clk_80,
   input clk_160,
@@ -62,7 +64,7 @@ gem_fiber_out  gem_fibers_out   (
   .TRG_TX_REFCLK       (mgt_refclk),          // QPLL 160 from MGT clk
   .TRG_TXUSRCLK        (usrclk),              // get 160 from TXOUTCLK (times 2)
   .TRG_CLK80           (usrclk2),             // get 80 from TXOUTCLK
-  .TRG_GTXTXRST        (1'b0),                // maybe Manual "reset" only
+  .TRG_GTXTXRST        (gtx_reset),           // maybe Manual "reset" only
   .TRG_TX_PLLRST       (txpll_rst),           // Tie LOW.
   .TRG_RST             (reset),               // gtx_reset =  PBrst | !TxSyncDone | !RxSyncDone
   .ENA_TEST_PAT        (1'b0),                // HIGH for PRBS! (Low will send data from GxC registers)  Use This Later, send low-rate pattern.
