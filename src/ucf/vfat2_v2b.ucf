@@ -104,36 +104,36 @@ NET "vfat2_data_valid_n_i[0]" LOC = V25;
 ## VFAT2 20
 
 # K6
-NET "vfat2_20_sbits_p_i[0]" LOC = AM10;
-NET "vfat2_20_sbits_n_i[0]" LOC = AL10;
+NET "vfat2_20_sbits_p_i[0]" LOC = AM10 | PULLDOWN;
+NET "vfat2_20_sbits_n_i[0]" LOC = AL10 | PULLUP;
 
 # K12
-NET "vfat2_20_sbits_p_i[1]" LOC = AP11;
-NET "vfat2_20_sbits_n_i[1]" LOC = AP12;
+NET "vfat2_20_sbits_p_i[1]" LOC = AP11 | PULLDOWN;
+NET "vfat2_20_sbits_n_i[1]" LOC = AP12 | PULLUP;
 
 # K14
-NET "vfat2_20_sbits_p_i[2]" LOC = AM12;
-NET "vfat2_20_sbits_n_i[2]" LOC = AN12;
+NET "vfat2_20_sbits_p_i[2]" LOC = AM12 | PULLDOWN;
+NET "vfat2_20_sbits_n_i[2]" LOC = AN12 | PULLUP;
 
 # K16
-NET "vfat2_20_sbits_p_i[3]" LOC = AN13;
-NET "vfat2_20_sbits_n_i[3]" LOC = AM13;
+NET "vfat2_20_sbits_p_i[3]" LOC = AN13 | PULLDOWN;
+NET "vfat2_20_sbits_n_i[3]" LOC = AM13 | PULLUP;
 
 # K20
-NET "vfat2_20_sbits_p_i[4]" LOC = AP14;
-NET "vfat2_20_sbits_n_i[4]" LOC = AN14;
+NET "vfat2_20_sbits_p_i[4]" LOC = AP14 | PULLDOWN;
+NET "vfat2_20_sbits_n_i[4]" LOC = AN14 | PULLUP;
 
 # J8
-NET "vfat2_20_sbits_p_i[5]" LOC = AP16;
-NET "vfat2_20_sbits_n_i[5]" LOC = AP15;
+NET "vfat2_20_sbits_p_i[5]" LOC = AP16 | PULLDOWN;
+NET "vfat2_20_sbits_n_i[5]" LOC = AP15 | PULLUP;
 
 # J16
-NET "vfat2_20_sbits_p_i[6]" LOC = AM17;
-NET "vfat2_20_sbits_n_i[6]" LOC = AM16;
+NET "vfat2_20_sbits_p_i[6]" LOC = AM17 | PULLDOWN;
+NET "vfat2_20_sbits_n_i[6]" LOC = AM16 | PULLUP;
 
 # J14
-NET "vfat2_20_sbits_p_i[7]" LOC = AN17;
-NET "vfat2_20_sbits_n_i[7]" LOC = AP17;
+NET "vfat2_20_sbits_p_i[7]" LOC = AN17 | PULLDOWN;
+NET "vfat2_20_sbits_n_i[7]" LOC = AP17 | PULLUP;
 
 # B2
 NET "vfat2_20_data_out_p_i" LOC = AM18;
@@ -142,36 +142,36 @@ NET "vfat2_20_data_out_n_i" LOC = AL18;
 ## VFAT2 21
 
 # B4
-NET "vfat2_21_sbits_p_i[0]" LOC = AP19;
-NET "vfat2_21_sbits_n_i[0]" LOC = AN18;
+NET "vfat2_21_sbits_p_i[0]" LOC = AP19 | PULLDOWN;
+NET "vfat2_21_sbits_n_i[0]" LOC = AN18 | PULLUP;
 
 # B6
-NET "vfat2_21_sbits_p_i[1]" LOC = AN19;
-NET "vfat2_21_sbits_n_i[1]" LOC = AN20;
+NET "vfat2_21_sbits_p_i[1]" LOC = AN19 | PULLDOWN;
+NET "vfat2_21_sbits_n_i[1]" LOC = AN20 | PULLUP;
 
 # B10
-NET "vfat2_21_sbits_p_i[2]" LOC = AP20;
-NET "vfat2_21_sbits_n_i[2]" LOC = AP21;
+NET "vfat2_21_sbits_p_i[2]" LOC = AP20 | PULLDOWN;
+NET "vfat2_21_sbits_n_i[2]" LOC = AP21 | PULLUP;
 
 # B18
-NET "vfat2_21_sbits_p_i[3]" LOC = AM22;
-NET "vfat2_21_sbits_n_i[3]" LOC = AN22;
+NET "vfat2_21_sbits_p_i[3]" LOC = AM22 | PULLDOWN;
+NET "vfat2_21_sbits_n_i[3]" LOC = AN22 | PULLUP;
 
 # B20
-NET "vfat2_21_sbits_p_i[4]" LOC = AP22;
-NET "vfat2_21_sbits_n_i[4]" LOC = AN23;
+NET "vfat2_21_sbits_p_i[4]" LOC = AP22 | PULLDOWN;
+NET "vfat2_21_sbits_n_i[4]" LOC = AN23 | PULLUP;
 
 # B16
-NET "vfat2_21_sbits_p_i[5]" LOC = AM23;
-NET "vfat2_21_sbits_n_i[5]" LOC = AL23;
+NET "vfat2_21_sbits_p_i[5]" LOC = AM23 | PULLDOWN;
+NET "vfat2_21_sbits_n_i[5]" LOC = AL23 | PULLUP;
 
 # D20
-NET "vfat2_21_sbits_p_i[6]" LOC = AP25;
-NET "vfat2_21_sbits_n_i[6]" LOC = AP24;
+NET "vfat2_21_sbits_p_i[6]" LOC = AP25 | PULLDOWN;
+NET "vfat2_21_sbits_n_i[6]" LOC = AP24 | PULLUP;
 
 # D14
-NET "vfat2_21_sbits_p_i[7]" LOC = AL26;
-NET "vfat2_21_sbits_n_i[7]" LOC = AM26;
+NET "vfat2_21_sbits_p_i[7]" LOC = AL26 | PULLDOWN;
+NET "vfat2_21_sbits_n_i[7]" LOC = AM26 | PULLUP;
 
 # D16
 NET "vfat2_21_data_out_p_i" LOC = AP27;
@@ -180,36 +180,36 @@ NET "vfat2_21_data_out_n_i" LOC = AP26;
 ## VFAT2 22
 
 # D8
-NET "vfat2_22_sbits_p_i[0]" LOC = AN28;
-NET "vfat2_22_sbits_n_i[0]" LOC = AM28;
+NET "vfat2_22_sbits_p_i[0]" LOC = AN28 | PULLDOWN;
+NET "vfat2_22_sbits_n_i[0]" LOC = AM28 | PULLUP;
 
 # D6
-NET "vfat2_22_sbits_p_i[1]" LOC = AN29;
-NET "vfat2_22_sbits_n_i[1]" LOC = AP29;
+NET "vfat2_22_sbits_p_i[1]" LOC = AN29 | PULLDOWN;
+NET "vfat2_22_sbits_n_i[1]" LOC = AP29 | PULLUP;
 
 # F9
-NET "vfat2_22_sbits_p_i[2]" LOC = AN33;
-NET "vfat2_22_sbits_n_i[2]" LOC = AN34;
+NET "vfat2_22_sbits_p_i[2]" LOC = AN33 | PULLDOWN;
+NET "vfat2_22_sbits_n_i[2]" LOC = AN34 | PULLUP;
 
 # F18
-NET "vfat2_22_sbits_p_i[3]" LOC = AN32;
-NET "vfat2_22_sbits_n_i[3]" LOC = AM32;
+NET "vfat2_22_sbits_p_i[3]" LOC = AN32 | PULLDOWN;
+NET "vfat2_22_sbits_n_i[3]" LOC = AM32 | PULLUP;
 
 # F17
-NET "vfat2_22_sbits_p_i[4]" LOC = AM33;
-NET "vfat2_22_sbits_n_i[4]" LOC = AL33;
+NET "vfat2_22_sbits_p_i[4]" LOC = AM33 | PULLDOWN;
+NET "vfat2_22_sbits_n_i[4]" LOC = AL33 | PULLUP;
 
 # F7
-NET "vfat2_22_sbits_p_i[5]" LOC = AL34;
-NET "vfat2_22_sbits_n_i[5]" LOC = AK34;
+NET "vfat2_22_sbits_p_i[5]" LOC = AL34 | PULLDOWN;
+NET "vfat2_22_sbits_n_i[5]" LOC = AK34 | PULLUP;
 
 # F15
-NET "vfat2_22_sbits_p_i[6]" LOC = AK33;
-NET "vfat2_22_sbits_n_i[6]" LOC = AK32;
+NET "vfat2_22_sbits_p_i[6]" LOC = AK33 | PULLDOWN;
+NET "vfat2_22_sbits_n_i[6]" LOC = AK32 | PULLUP;
 
 # F5
-NET "vfat2_22_sbits_p_i[7]" LOC = AJ34;
-NET "vfat2_22_sbits_n_i[7]" LOC = AH34;
+NET "vfat2_22_sbits_p_i[7]" LOC = AJ34 | PULLDOWN;
+NET "vfat2_22_sbits_n_i[7]" LOC = AH34 | PULLUP;
 
 # F3
 NET "vfat2_22_data_out_p_i" LOC = AH33;
@@ -218,36 +218,36 @@ NET "vfat2_22_data_out_n_i" LOC = AH32;
 ## VFAT2 23
 
 # G17
-NET "vfat2_23_sbits_p_i[0]" LOC = AG33;
-NET "vfat2_23_sbits_n_i[0]" LOC = AG32;
+NET "vfat2_23_sbits_p_i[0]" LOC = AG33 | PULLDOWN;
+NET "vfat2_23_sbits_n_i[0]" LOC = AG32 | PULLUP;
 
 # G9
-NET "vfat2_23_sbits_p_i[1]" LOC = AE34;
-NET "vfat2_23_sbits_n_i[1]" LOC = AF34;
+NET "vfat2_23_sbits_p_i[1]" LOC = AE34 | PULLDOWN;
+NET "vfat2_23_sbits_n_i[1]" LOC = AF34 | PULLUP;
 
 # G15
-NET "vfat2_23_sbits_p_i[2]" LOC = AD32;
-NET "vfat2_23_sbits_n_i[2]" LOC = AE32;
+NET "vfat2_23_sbits_p_i[2]" LOC = AD32 | PULLDOWN;
+NET "vfat2_23_sbits_n_i[2]" LOC = AE32 | PULLUP;
 
 # G3
-NET "vfat2_23_sbits_p_i[3]" LOC = AD34;
-NET "vfat2_23_sbits_n_i[3]" LOC = AC34;
+NET "vfat2_23_sbits_p_i[3]" LOC = AD34 | PULLDOWN;
+NET "vfat2_23_sbits_n_i[3]" LOC = AC34 | PULLUP;
 
 # G5
-NET "vfat2_23_sbits_p_i[4]" LOC = AC33;
-NET "vfat2_23_sbits_n_i[4]" LOC = AB33;
+NET "vfat2_23_sbits_p_i[4]" LOC = AC33 | PULLDOWN;
+NET "vfat2_23_sbits_n_i[4]" LOC = AB33 | PULLUP;
 
 # G1
-NET "vfat2_23_sbits_p_i[5]" LOC = AA34;
-NET "vfat2_23_sbits_n_i[5]" LOC = AA33;
+NET "vfat2_23_sbits_p_i[5]" LOC = AA34 | PULLDOWN;
+NET "vfat2_23_sbits_n_i[5]" LOC = AA33 | PULLUP;
 
 # H15
-NET "vfat2_23_sbits_p_i[6]" LOC = Y33;
-NET "vfat2_23_sbits_n_i[6]" LOC = Y34;
+NET "vfat2_23_sbits_p_i[6]" LOC = Y33 | PULLDOWN;
+NET "vfat2_23_sbits_n_i[6]" LOC = Y34 | PULLUP;
 
 # H11
-NET "vfat2_23_sbits_p_i[7]" LOC = V34;
-NET "vfat2_23_sbits_n_i[7]" LOC = W34;
+NET "vfat2_23_sbits_p_i[7]" LOC = V34 | PULLDOWN;
+NET "vfat2_23_sbits_n_i[7]" LOC = W34 | PULLUP;
 
 # H13
 NET "vfat2_23_data_out_p_i" LOC = V32;
@@ -256,36 +256,36 @@ NET "vfat2_23_data_out_n_i" LOC = V33;
 ## VFAT2 19
 
 # H8
-NET "vfat2_19_sbits_p_i[0]" LOC = U28;
-NET "vfat2_19_sbits_n_i[0]" LOC = V29;
+NET "vfat2_19_sbits_p_i[0]" LOC = U28 | PULLDOWN;
+NET "vfat2_19_sbits_n_i[0]" LOC = V29 | PULLUP;
 
 # H10
-NET "vfat2_19_sbits_p_i[1]" LOC = V30;
-NET "vfat2_19_sbits_n_i[1]" LOC = W30;
+NET "vfat2_19_sbits_p_i[1]" LOC = V30 | PULLDOWN;
+NET "vfat2_19_sbits_n_i[1]" LOC = W30 | PULLUP;
 
 # H17
-NET "vfat2_19_sbits_p_i[2]" LOC = W31;
-NET "vfat2_19_sbits_n_i[2]" LOC = W32;
+NET "vfat2_19_sbits_p_i[2]" LOC = W31 | PULLDOWN;
+NET "vfat2_19_sbits_n_i[2]" LOC = W32 | PULLUP;
 
 # H14
-NET "vfat2_19_sbits_p_i[3]" LOC = Y32;
-NET "vfat2_19_sbits_n_i[3]" LOC = Y31;
+NET "vfat2_19_sbits_p_i[3]" LOC = Y32 | PULLDOWN;
+NET "vfat2_19_sbits_n_i[3]" LOC = Y31 | PULLUP;
 
 # G4
-NET "vfat2_19_sbits_p_i[4]" LOC = AB30;
-NET "vfat2_19_sbits_n_i[4]" LOC = AB31;
+NET "vfat2_19_sbits_p_i[4]" LOC = AB30 | PULLDOWN;
+NET "vfat2_19_sbits_n_i[4]" LOC = AB31 | PULLUP;
 
 # G13
-NET "vfat2_19_sbits_p_i[5]" LOC = AB32;
-NET "vfat2_19_sbits_n_i[5]" LOC = AC32;
+NET "vfat2_19_sbits_p_i[5]" LOC = AB32 | PULLDOWN;
+NET "vfat2_19_sbits_n_i[5]" LOC = AC32 | PULLUP;
 
 # G10
-NET "vfat2_19_sbits_p_i[6]" LOC = AD30;
-NET "vfat2_19_sbits_n_i[6]" LOC = AC30;
+NET "vfat2_19_sbits_p_i[6]" LOC = AD30 | PULLDOWN;
+NET "vfat2_19_sbits_n_i[6]" LOC = AC30 | PULLUP;
 
 # G6
-NET "vfat2_19_sbits_p_i[7]" LOC = AE31;
-NET "vfat2_19_sbits_n_i[7]" LOC = AD31;
+NET "vfat2_19_sbits_p_i[7]" LOC = AE31 | PULLDOWN;
+NET "vfat2_19_sbits_n_i[7]" LOC = AD31 | PULLUP;
 
 # G11
 NET "vfat2_19_data_out_p_i" LOC = AE33;
@@ -294,36 +294,36 @@ NET "vfat2_19_data_out_n_i" LOC = AF33;
 ## VFAT2 18
 
 # G19
-NET "vfat2_18_sbits_p_i[0]" LOC = AG31;
-NET "vfat2_18_sbits_n_i[0]" LOC = AF31;
+NET "vfat2_18_sbits_p_i[0]" LOC = AG31 | PULLDOWN;
+NET "vfat2_18_sbits_n_i[0]" LOC = AF31 | PULLUP;
 
 # F8
-NET "vfat2_18_sbits_p_i[1]" LOC = AH29;
-NET "vfat2_18_sbits_n_i[1]" LOC = AH30;
+NET "vfat2_18_sbits_p_i[1]" LOC = AH29 | PULLDOWN;
+NET "vfat2_18_sbits_n_i[1]" LOC = AH30 | PULLUP;
 
 # F13
-NET "vfat2_18_sbits_p_i[2]" LOC = AJ31;
-NET "vfat2_18_sbits_n_i[2]" LOC = AJ32;
+NET "vfat2_18_sbits_p_i[2]" LOC = AJ31 | PULLDOWN;
+NET "vfat2_18_sbits_n_i[2]" LOC = AJ32 | PULLUP;
 
 # F14
-NET "vfat2_18_sbits_p_i[3]" LOC = AJ29;
-NET "vfat2_18_sbits_n_i[3]" LOC = AJ30;
+NET "vfat2_18_sbits_p_i[3]" LOC = AJ29 | PULLDOWN;
+NET "vfat2_18_sbits_n_i[3]" LOC = AJ30 | PULLUP;
 
 # F16
-NET "vfat2_18_sbits_p_i[4]" LOC = AL31;
-NET "vfat2_18_sbits_n_i[4]" LOC = AK31;
+NET "vfat2_18_sbits_p_i[4]" LOC = AL31 | PULLDOWN;
+NET "vfat2_18_sbits_n_i[4]" LOC = AK31 | PULLUP;
 
 # F20
-NET "vfat2_18_sbits_p_i[5]" LOC = AL30;
-NET "vfat2_18_sbits_n_i[5]" LOC = AM31;
+NET "vfat2_18_sbits_p_i[5]" LOC = AL30 | PULLDOWN;
+NET "vfat2_18_sbits_n_i[5]" LOC = AM31 | PULLUP;
 
 # D2
-NET "vfat2_18_sbits_p_i[6]" LOC = AN30;
-NET "vfat2_18_sbits_n_i[6]" LOC = AM30;
+NET "vfat2_18_sbits_p_i[6]" LOC = AN30 | PULLDOWN;
+NET "vfat2_18_sbits_n_i[6]" LOC = AM30 | PULLUP;
 
 # F19
-NET "vfat2_18_sbits_p_i[7]" LOC = AP32;
-NET "vfat2_18_sbits_n_i[7]" LOC = AP33;
+NET "vfat2_18_sbits_p_i[7]" LOC = AP32 | PULLDOWN;
+NET "vfat2_18_sbits_n_i[7]" LOC = AP33 | PULLUP;
 
 # D4
 NET "vfat2_18_data_out_p_i" LOC = AP30;
@@ -332,36 +332,36 @@ NET "vfat2_18_data_out_n_i" LOC = AP31;
 ## VFAT2 17
 
 # D7
-NET "vfat2_17_sbits_p_i[0]" LOC = AL28;
-NET "vfat2_17_sbits_n_i[0]" LOC = AK28;
+NET "vfat2_17_sbits_p_i[0]" LOC = AL28 | PULLDOWN;
+NET "vfat2_17_sbits_n_i[0]" LOC = AK28 | PULLUP;
 
 # D11
-NET "vfat2_17_sbits_p_i[1]" LOC = AK27;
-NET "vfat2_17_sbits_n_i[1]" LOC = AJ27;
+NET "vfat2_17_sbits_p_i[1]" LOC = AK27 | PULLDOWN;
+NET "vfat2_17_sbits_n_i[1]" LOC = AJ27 | PULLUP;
 
 # D10
-NET "vfat2_17_sbits_p_i[2]" LOC = AN27;
-NET "vfat2_17_sbits_n_i[2]" LOC = AM27;
+NET "vfat2_17_sbits_p_i[2]" LOC = AN27 | PULLDOWN;
+NET "vfat2_17_sbits_n_i[2]" LOC = AM27 | PULLUP;
 
 # D13
-NET "vfat2_17_sbits_p_i[3]" LOC = AK26;
-NET "vfat2_17_sbits_n_i[3]" LOC = AJ26;
+NET "vfat2_17_sbits_p_i[3]" LOC = AK26 | PULLDOWN;
+NET "vfat2_17_sbits_n_i[3]" LOC = AJ26 | PULLUP;
 
 # D18
-NET "vfat2_17_sbits_p_i[4]" LOC = AN25;
-NET "vfat2_17_sbits_n_i[4]" LOC = AN24;
+NET "vfat2_17_sbits_p_i[4]" LOC = AN25 | PULLDOWN;
+NET "vfat2_17_sbits_n_i[4]" LOC = AN24 | PULLUP;
 
 # D19
-NET "vfat2_17_sbits_p_i[5]" LOC = AK23;
-NET "vfat2_17_sbits_n_i[5]" LOC = AL24;
+NET "vfat2_17_sbits_p_i[5]" LOC = AK23 | PULLDOWN;
+NET "vfat2_17_sbits_n_i[5]" LOC = AL24 | PULLUP;
 
 # B5
-NET "vfat2_17_sbits_p_i[6]" LOC = AK22;
-NET "vfat2_17_sbits_n_i[6]" LOC = AJ22;
+NET "vfat2_17_sbits_p_i[6]" LOC = AK22 | PULLDOWN;
+NET "vfat2_17_sbits_n_i[6]" LOC = AJ22 | PULLUP;
 
 # B14
-NET "vfat2_17_sbits_p_i[7]" LOC = AM21;
-NET "vfat2_17_sbits_n_i[7]" LOC = AL21;
+NET "vfat2_17_sbits_p_i[7]" LOC = AM21 | PULLDOWN;
+NET "vfat2_17_sbits_n_i[7]" LOC = AL21 | PULLUP;
 
 # B8
 NET "vfat2_17_data_out_p_i" LOC = AM20;
@@ -370,36 +370,36 @@ NET "vfat2_17_data_out_n_i" LOC = AL20;
 ## VFAT2 16
 
 # B11
-NET "vfat2_16_sbits_p_i[0]" LOC = AK19;
-NET "vfat2_16_sbits_n_i[0]" LOC = AL19;
+NET "vfat2_16_sbits_p_i[0]" LOC = AK19 | PULLDOWN;
+NET "vfat2_16_sbits_n_i[0]" LOC = AL19 | PULLUP;
 
 # J15
-NET "vfat2_16_sbits_p_i[1]" LOC = AJ19;
-NET "vfat2_16_sbits_n_i[1]" LOC = AH19;
+NET "vfat2_16_sbits_p_i[1]" LOC = AJ19 | PULLDOWN;
+NET "vfat2_16_sbits_n_i[1]" LOC = AH19 | PULLUP;
 
 # J18
-NET "vfat2_16_sbits_p_i[2]" LOC = AK18;
-NET "vfat2_16_sbits_n_i[2]" LOC = AK17;
+NET "vfat2_16_sbits_p_i[2]" LOC = AK18 | PULLDOWN;
+NET "vfat2_16_sbits_n_i[2]" LOC = AK17 | PULLUP;
 
 # J20
-NET "vfat2_16_sbits_p_i[3]" LOC = AL16;
-NET "vfat2_16_sbits_n_i[3]" LOC = AK16;
+NET "vfat2_16_sbits_p_i[3]" LOC = AL16 | PULLDOWN;
+NET "vfat2_16_sbits_n_i[3]" LOC = AK16 | PULLUP;
 
 # J6
-NET "vfat2_16_sbits_p_i[4]" LOC = AN15;
-NET "vfat2_16_sbits_n_i[4]" LOC = AM15;
+NET "vfat2_16_sbits_p_i[4]" LOC = AN15 | PULLDOWN;
+NET "vfat2_16_sbits_n_i[4]" LOC = AM15 | PULLUP;
 
 # J4
-NET "vfat2_16_sbits_p_i[5]" LOC = AL15;
-NET "vfat2_16_sbits_n_i[5]" LOC = AL14;
+NET "vfat2_16_sbits_p_i[5]" LOC = AL15 | PULLDOWN;
+NET "vfat2_16_sbits_n_i[5]" LOC = AL14 | PULLUP;
 
 # K18
-NET "vfat2_16_sbits_p_i[6]" LOC = AK13;
-NET "vfat2_16_sbits_n_i[6]" LOC = AL13;
+NET "vfat2_16_sbits_p_i[6]" LOC = AK13 | PULLDOWN;
+NET "vfat2_16_sbits_n_i[6]" LOC = AL13 | PULLUP;
 
 # K4
-NET "vfat2_16_sbits_p_i[7]" LOC = AK12;
-NET "vfat2_16_sbits_n_i[7]" LOC = AJ12;
+NET "vfat2_16_sbits_p_i[7]" LOC = AK12 | PULLDOWN;
+NET "vfat2_16_sbits_n_i[7]" LOC = AJ12 | PULLUP;
 
 # K8
 NET "vfat2_16_data_out_p_i" LOC = AL11;
@@ -408,36 +408,36 @@ NET "vfat2_16_data_out_n_i" LOC = AM11;
 ## VFAT2 11
 
 # L11
-NET "vfat2_11_sbits_p_i[0]" LOC = M12;
-NET "vfat2_11_sbits_n_i[0]" LOC = M11;
+NET "vfat2_11_sbits_p_i[0]" LOC = M12 | PULLDOWN;
+NET "vfat2_11_sbits_n_i[0]" LOC = M11 | PULLUP;
 
 # L5
-NET "vfat2_11_sbits_p_i[1]" LOC = G12;
-NET "vfat2_11_sbits_n_i[1]" LOC = H13;
+NET "vfat2_11_sbits_p_i[1]" LOC = G12 | PULLDOWN;
+NET "vfat2_11_sbits_n_i[1]" LOC = H13 | PULLUP;
 
 # L1
-NET "vfat2_11_sbits_p_i[2]" LOC = G13;
-NET "vfat2_11_sbits_n_i[2]" LOC = H14;
+NET "vfat2_11_sbits_p_i[2]" LOC = G13 | PULLDOWN;
+NET "vfat2_11_sbits_n_i[2]" LOC = H14 | PULLUP;
 
 # L9
-NET "vfat2_11_sbits_p_i[3]" LOC = K14;
-NET "vfat2_11_sbits_n_i[3]" LOC = J14;
+NET "vfat2_11_sbits_p_i[3]" LOC = K14 | PULLDOWN;
+NET "vfat2_11_sbits_n_i[3]" LOC = J14 | PULLUP;
 
 # M19
-NET "vfat2_11_sbits_p_i[4]" LOC = H15;
-NET "vfat2_11_sbits_n_i[4]" LOC = J15;
+NET "vfat2_11_sbits_p_i[4]" LOC = H15 | PULLDOWN;
+NET "vfat2_11_sbits_n_i[4]" LOC = J15 | PULLUP;
 
 # M13
-NET "vfat2_11_sbits_p_i[5]" LOC = F16;
-NET "vfat2_11_sbits_n_i[5]" LOC = G16;
+NET "vfat2_11_sbits_p_i[5]" LOC = F16 | PULLDOWN;
+NET "vfat2_11_sbits_n_i[5]" LOC = G16 | PULLUP;
 
 # M1
-NET "vfat2_11_sbits_p_i[6]" LOC = F18;
-NET "vfat2_11_sbits_n_i[6]" LOC = E17;
+NET "vfat2_11_sbits_p_i[6]" LOC = F18 | PULLDOWN;
+NET "vfat2_11_sbits_n_i[6]" LOC = E17 | PULLUP;
 
 # M9
-NET "vfat2_11_sbits_p_i[7]" LOC = G18;
-NET "vfat2_11_sbits_n_i[7]" LOC = H18;
+NET "vfat2_11_sbits_p_i[7]" LOC = G18 | PULLDOWN;
+NET "vfat2_11_sbits_n_i[7]" LOC = H18 | PULLUP;
 
 # I9
 NET "vfat2_11_data_out_p_i" LOC = F19;
@@ -446,36 +446,36 @@ NET "vfat2_11_data_out_n_i" LOC = F20;
 ## VFAT2 12
 
 # J9
-NET "vfat2_12_sbits_p_i[0]" LOC = AH17;
-NET "vfat2_12_sbits_n_i[0]" LOC = AG17;
+NET "vfat2_12_sbits_p_i[0]" LOC = AH17 | PULLDOWN;
+NET "vfat2_12_sbits_n_i[0]" LOC = AG17 | PULLUP;
 
 # J7
-NET "vfat2_12_sbits_p_i[1]" LOC = AJ17;
-NET "vfat2_12_sbits_n_i[1]" LOC = AJ16;
+NET "vfat2_12_sbits_p_i[1]" LOC = AJ17 | PULLDOWN;
+NET "vfat2_12_sbits_n_i[1]" LOC = AJ16 | PULLUP;
 
 # J3
-NET "vfat2_12_sbits_p_i[2]" LOC = AJ15;
-NET "vfat2_12_sbits_n_i[2]" LOC = AH15;
+NET "vfat2_12_sbits_p_i[2]" LOC = AJ15 | PULLDOWN;
+NET "vfat2_12_sbits_n_i[2]" LOC = AH15 | PULLUP;
 
 # J2
-NET "vfat2_12_sbits_p_i[3]" LOC = AK14;
-NET "vfat2_12_sbits_n_i[3]" LOC = AJ14;
+NET "vfat2_12_sbits_p_i[3]" LOC = AK14 | PULLDOWN;
+NET "vfat2_12_sbits_n_i[3]" LOC = AJ14 | PULLUP;
 
 # K19
-NET "vfat2_12_sbits_p_i[4]" LOC = AH13;
-NET "vfat2_12_sbits_n_i[4]" LOC = AH14;
+NET "vfat2_12_sbits_p_i[4]" LOC = AH13 | PULLDOWN;
+NET "vfat2_12_sbits_n_i[4]" LOC = AH14 | PULLUP;
 
 # K17
-NET "vfat2_12_sbits_p_i[5]" LOC = AG12;
-NET "vfat2_12_sbits_n_i[5]" LOC = AH12;
+NET "vfat2_12_sbits_p_i[5]" LOC = AG12 | PULLDOWN;
+NET "vfat2_12_sbits_n_i[5]" LOC = AH12 | PULLUP;
 
 # K2
-NET "vfat2_12_sbits_p_i[6]" LOC = AJ11;
-NET "vfat2_12_sbits_n_i[6]" LOC = AK11;
+NET "vfat2_12_sbits_p_i[6]" LOC = AJ11 | PULLDOWN;
+NET "vfat2_12_sbits_n_i[6]" LOC = AK11 | PULLUP;
 
 # K7
-NET "vfat2_12_sbits_p_i[7]" LOC = AG11;
-NET "vfat2_12_sbits_n_i[7]" LOC = AG10;
+NET "vfat2_12_sbits_p_i[7]" LOC = AG11 | PULLDOWN;
+NET "vfat2_12_sbits_n_i[7]" LOC = AG10 | PULLUP;
 
 # K9
 NET "vfat2_12_data_out_p_i" LOC = AJ10;
@@ -484,36 +484,36 @@ NET "vfat2_12_data_out_n_i" LOC = AH10;
 ## VFAT2 10
 
 # I11
-NET "vfat2_10_sbits_p_i[0]" LOC = F21;
-NET "vfat2_10_sbits_n_i[0]" LOC = G20;
+NET "vfat2_10_sbits_p_i[0]" LOC = F21 | PULLDOWN;
+NET "vfat2_10_sbits_n_i[0]" LOC = G20 | PULLUP;
 
 # I3
-NET "vfat2_10_sbits_p_i[1]" LOC = G21;
-NET "vfat2_10_sbits_n_i[1]" LOC = G22;
+NET "vfat2_10_sbits_p_i[1]" LOC = G21 | PULLDOWN;
+NET "vfat2_10_sbits_n_i[1]" LOC = G22 | PULLUP;
 
 # I15
-NET "vfat2_10_sbits_p_i[2]" LOC = H22;
-NET "vfat2_10_sbits_n_i[2]" LOC = J22;
+NET "vfat2_10_sbits_p_i[2]" LOC = H22 | PULLDOWN;
+NET "vfat2_10_sbits_n_i[2]" LOC = J22 | PULLUP;
 
 # N9
-NET "vfat2_10_sbits_p_i[3]" LOC = T24;
-NET "vfat2_10_sbits_n_i[3]" LOC = T23;
+NET "vfat2_10_sbits_p_i[3]" LOC = T24 | PULLDOWN;
+NET "vfat2_10_sbits_n_i[3]" LOC = T23 | PULLUP;
 
 # C2
-NET "vfat2_10_sbits_p_i[4]" LOC = N25;
-NET "vfat2_10_sbits_n_i[4]" LOC = M25;
+NET "vfat2_10_sbits_p_i[4]" LOC = N25 | PULLDOWN;
+NET "vfat2_10_sbits_n_i[4]" LOC = M25 | PULLUP;
 
 # E12
-NET "vfat2_10_sbits_p_i[5]" LOC = F25;
-NET "vfat2_10_sbits_n_i[5]" LOC = G25;
+NET "vfat2_10_sbits_p_i[5]" LOC = F25 | PULLDOWN;
+NET "vfat2_10_sbits_n_i[5]" LOC = G25 | PULLUP;
 
 # E16
-NET "vfat2_10_sbits_p_i[6]" LOC = A30;
-NET "vfat2_10_sbits_n_i[6]" LOC = B30;
+NET "vfat2_10_sbits_p_i[6]" LOC = A30 | PULLDOWN;
+NET "vfat2_10_sbits_n_i[6]" LOC = B30 | PULLUP;
 
 # A10
-NET "vfat2_10_sbits_p_i[7]" LOC = K26;
-NET "vfat2_10_sbits_n_i[7]" LOC = K27;
+NET "vfat2_10_sbits_p_i[7]" LOC = K26 | PULLDOWN;
+NET "vfat2_10_sbits_n_i[7]" LOC = K27 | PULLUP;
 
 # I19
 NET "vfat2_10_data_out_p_i" LOC = L20;
@@ -522,36 +522,36 @@ NET "vfat2_10_data_out_n_i" LOC = L21;
 ## VFAT2 13
 
 # D3
-NET "vfat2_13_sbits_p_i[0]" LOC = AG25;
-NET "vfat2_13_sbits_n_i[0]" LOC = AG26;
+NET "vfat2_13_sbits_p_i[0]" LOC = AG25 | PULLDOWN;
+NET "vfat2_13_sbits_n_i[0]" LOC = AG26 | PULLUP;
 
 # D17
-NET "vfat2_13_sbits_p_i[1]" LOC = AM25;
-NET "vfat2_13_sbits_n_i[1]" LOC = AL25;
+NET "vfat2_13_sbits_p_i[1]" LOC = AM25 | PULLDOWN;
+NET "vfat2_13_sbits_n_i[1]" LOC = AL25 | PULLUP;
 
 # D15
-NET "vfat2_13_sbits_p_i[2]" LOC = AJ24;
-NET "vfat2_13_sbits_n_i[2]" LOC = AK24;
+NET "vfat2_13_sbits_p_i[2]" LOC = AJ24 | PULLDOWN;
+NET "vfat2_13_sbits_n_i[2]" LOC = AK24 | PULLUP;
 
 # B3
-NET "vfat2_13_sbits_p_i[3]" LOC = AG22;
-NET "vfat2_13_sbits_n_i[3]" LOC = AH22;
+NET "vfat2_13_sbits_p_i[3]" LOC = AG22 | PULLDOWN;
+NET "vfat2_13_sbits_n_i[3]" LOC = AH22 | PULLUP;
 
 # B17
-NET "vfat2_13_sbits_p_i[4]" LOC = AK21;
-NET "vfat2_13_sbits_n_i[4]" LOC = AJ21;
+NET "vfat2_13_sbits_p_i[4]" LOC = AK21 | PULLDOWN;
+NET "vfat2_13_sbits_n_i[4]" LOC = AJ21 | PULLUP;
 
 # B13
-NET "vfat2_13_sbits_p_i[5]" LOC = AJ20;
-NET "vfat2_13_sbits_n_i[5]" LOC = AH20;
+NET "vfat2_13_sbits_p_i[5]" LOC = AJ20 | PULLDOWN;
+NET "vfat2_13_sbits_n_i[5]" LOC = AH20 | PULLUP;
 
 # B9
-NET "vfat2_13_sbits_p_i[6]" LOC = AF19;
-NET "vfat2_13_sbits_n_i[6]" LOC = AE19;
+NET "vfat2_13_sbits_p_i[6]" LOC = AF19 | PULLDOWN;
+NET "vfat2_13_sbits_n_i[6]" LOC = AE19 | PULLUP;
 
 # J13
-NET "vfat2_13_sbits_p_i[7]" LOC = AH18;
-NET "vfat2_13_sbits_n_i[7]" LOC = AG18;
+NET "vfat2_13_sbits_p_i[7]" LOC = AH18 | PULLDOWN;
+NET "vfat2_13_sbits_n_i[7]" LOC = AG18 | PULLUP;
 
 # J19
 NET "vfat2_13_data_out_p_i" LOC = AE18;
@@ -560,36 +560,36 @@ NET "vfat2_13_data_out_n_i" LOC = AF18;
 ## VFAT2 9
 
 # C6
-NET "vfat2_9_sbits_p_i[0]" LOC = N27;
-NET "vfat2_9_sbits_n_i[0]" LOC = P27;
+NET "vfat2_9_sbits_p_i[0]" LOC = N27 | PULLDOWN;
+NET "vfat2_9_sbits_n_i[0]" LOC = P27 | PULLUP;
 
 # C16
-NET "vfat2_9_sbits_p_i[1]" LOC = R26;
-NET "vfat2_9_sbits_n_i[1]" LOC = T26;
+NET "vfat2_9_sbits_p_i[1]" LOC = R26 | PULLDOWN;
+NET "vfat2_9_sbits_n_i[1]" LOC = T26 | PULLUP;
 
 # H1
-NET "vfat2_9_sbits_p_i[2]" LOC = U25;
-NET "vfat2_9_sbits_n_i[2]" LOC = T25;
+NET "vfat2_9_sbits_p_i[2]" LOC = U25 | PULLDOWN;
+NET "vfat2_9_sbits_n_i[2]" LOC = T25 | PULLUP;
 
 # E20
-NET "vfat2_9_sbits_p_i[3]" LOC = B31;
-NET "vfat2_9_sbits_n_i[3]" LOC = A31;
+NET "vfat2_9_sbits_p_i[3]" LOC = B31 | PULLDOWN;
+NET "vfat2_9_sbits_n_i[3]" LOC = A31 | PULLUP;
 
 # A16
-NET "vfat2_9_sbits_p_i[4]" LOC = D31;
-NET "vfat2_9_sbits_n_i[4]" LOC = D32;
+NET "vfat2_9_sbits_p_i[4]" LOC = D31 | PULLDOWN;
+NET "vfat2_9_sbits_n_i[4]" LOC = D32 | PULLUP;
 
 # E7
-NET "vfat2_9_sbits_p_i[5]" LOC = G26;
-NET "vfat2_9_sbits_n_i[5]" LOC = G27;
+NET "vfat2_9_sbits_p_i[5]" LOC = G26 | PULLDOWN;
+NET "vfat2_9_sbits_n_i[5]" LOC = G27 | PULLUP;
 
 # E13
-NET "vfat2_9_sbits_p_i[6]" LOC = H27;
-NET "vfat2_9_sbits_n_i[6]" LOC = G28;
+NET "vfat2_9_sbits_p_i[6]" LOC = H27 | PULLDOWN;
+NET "vfat2_9_sbits_n_i[6]" LOC = G28 | PULLUP;
 
 # E19
-NET "vfat2_9_sbits_p_i[7]" LOC = H28;
-NET "vfat2_9_sbits_n_i[7]" LOC = H29;
+NET "vfat2_9_sbits_p_i[7]" LOC = H28 | PULLDOWN;
+NET "vfat2_9_sbits_n_i[7]" LOC = H29 | PULLUP;
 
 # A8
 NET "vfat2_9_data_out_p_i" LOC = K28;
@@ -598,36 +598,36 @@ NET "vfat2_9_data_out_n_i" LOC = J29;
 ## VFAT2 14
 
 # F10
-NET "vfat2_14_sbits_p_i[0]" LOC = AG27;
-NET "vfat2_14_sbits_n_i[0]" LOC = AG28;
+NET "vfat2_14_sbits_p_i[0]" LOC = AG27 | PULLDOWN;
+NET "vfat2_14_sbits_n_i[0]" LOC = AG28 | PULLUP;
 
 # G20
-NET "vfat2_14_sbits_p_i[1]" LOC = AB25;
-NET "vfat2_14_sbits_n_i[1]" LOC = AC25;
+NET "vfat2_14_sbits_p_i[1]" LOC = AB25 | PULLDOWN;
+NET "vfat2_14_sbits_n_i[1]" LOC = AC25 | PULLUP;
 
 # F1
-NET "vfat2_14_sbits_p_i[2]" LOC = AD25;
-NET "vfat2_14_sbits_n_i[2]" LOC = AD26;
+NET "vfat2_14_sbits_p_i[2]" LOC = AD25 | PULLDOWN;
+NET "vfat2_14_sbits_n_i[2]" LOC = AD26 | PULLUP;
 
 # B1
-NET "vfat2_14_sbits_p_i[3]" LOC = AE21;
-NET "vfat2_14_sbits_n_i[3]" LOC = AD21;
+NET "vfat2_14_sbits_p_i[3]" LOC = AE21 | PULLDOWN;
+NET "vfat2_14_sbits_n_i[3]" LOC = AD21 | PULLUP;
 
 # B12
-NET "vfat2_14_sbits_p_i[4]" LOC = AF20;
-NET "vfat2_14_sbits_n_i[4]" LOC = AF21;
+NET "vfat2_14_sbits_p_i[4]" LOC = AF20 | PULLDOWN;
+NET "vfat2_14_sbits_n_i[4]" LOC = AF21 | PULLUP;
 
 # D9
-NET "vfat2_14_sbits_p_i[5]" LOC = AH25;
-NET "vfat2_14_sbits_n_i[5]" LOC = AJ25;
+NET "vfat2_14_sbits_p_i[5]" LOC = AH25 | PULLDOWN;
+NET "vfat2_14_sbits_n_i[5]" LOC = AJ25 | PULLUP;
 
 # D5
-NET "vfat2_14_sbits_p_i[6]" LOC = AL29;
-NET "vfat2_14_sbits_n_i[6]" LOC = AK29;
+NET "vfat2_14_sbits_p_i[6]" LOC = AL29 | PULLDOWN;
+NET "vfat2_14_sbits_n_i[6]" LOC = AK29 | PULLUP;
 
 # D1
-NET "vfat2_14_sbits_p_i[7]" LOC = AH27;
-NET "vfat2_14_sbits_n_i[7]" LOC = AH28;
+NET "vfat2_14_sbits_p_i[7]" LOC = AH27 | PULLDOWN;
+NET "vfat2_14_sbits_n_i[7]" LOC = AH28 | PULLUP;
 
 # F12
 NET "vfat2_14_data_out_p_i" LOC = AF26;
@@ -636,36 +636,36 @@ NET "vfat2_14_data_out_n_i" LOC = AE26;
 ## VFAT2 8
 
 # C12
-NET "vfat2_8_sbits_p_i[0]" LOC = L29;
-NET "vfat2_8_sbits_n_i[0]" LOC = L30;
+NET "vfat2_8_sbits_p_i[0]" LOC = L29 | PULLDOWN;
+NET "vfat2_8_sbits_n_i[0]" LOC = L30 | PULLUP;
 
 # C8
-NET "vfat2_8_sbits_p_i[1]" LOC = L28;
-NET "vfat2_8_sbits_n_i[1]" LOC = M28;
+NET "vfat2_8_sbits_p_i[1]" LOC = L28 | PULLDOWN;
+NET "vfat2_8_sbits_n_i[1]" LOC = M28 | PULLUP;
 
 # C4
-NET "vfat2_8_sbits_p_i[2]" LOC = M26;
-NET "vfat2_8_sbits_n_i[2]" LOC = M27;
+NET "vfat2_8_sbits_p_i[2]" LOC = M26 | PULLDOWN;
+NET "vfat2_8_sbits_n_i[2]" LOC = M27 | PULLUP;
 
 # C10
-NET "vfat2_8_sbits_p_i[3]" LOC = N28;
-NET "vfat2_8_sbits_n_i[3]" LOC = N29;
+NET "vfat2_8_sbits_p_i[3]" LOC = N28 | PULLDOWN;
+NET "vfat2_8_sbits_n_i[3]" LOC = N29 | PULLUP;
 
 # C20
-NET "vfat2_8_sbits_p_i[4]" LOC = P29;
-NET "vfat2_8_sbits_n_i[4]" LOC = R29;
+NET "vfat2_8_sbits_p_i[4]" LOC = P29 | PULLDOWN;
+NET "vfat2_8_sbits_n_i[4]" LOC = R29 | PULLUP;
 
 # C14
-NET "vfat2_8_sbits_p_i[5]" LOC = R28;
-NET "vfat2_8_sbits_n_i[5]" LOC = R27;
+NET "vfat2_8_sbits_p_i[5]" LOC = R28 | PULLDOWN;
+NET "vfat2_8_sbits_n_i[5]" LOC = R27 | PULLUP;
 
 # H2
-NET "vfat2_8_sbits_p_i[6]" LOC = T28;
-NET "vfat2_8_sbits_n_i[6]" LOC = T29;
+NET "vfat2_8_sbits_p_i[6]" LOC = T28 | PULLDOWN;
+NET "vfat2_8_sbits_n_i[6]" LOC = T29 | PULLUP;
 
 # H6
-NET "vfat2_8_sbits_p_i[7]" LOC = U26;
-NET "vfat2_8_sbits_n_i[7]" LOC = U27;
+NET "vfat2_8_sbits_p_i[7]" LOC = U26 | PULLDOWN;
+NET "vfat2_8_sbits_n_i[7]" LOC = U27 | PULLUP;
 
 # H12
 NET "vfat2_8_data_out_p_i" LOC = V28;
@@ -674,36 +674,36 @@ NET "vfat2_8_data_out_n_i" LOC = V27;
 ## VFAT2 15
 
 # H16
-NET "vfat2_15_sbits_p_i[0]" LOC = W29;
-NET "vfat2_15_sbits_n_i[0]" LOC = Y29;
+NET "vfat2_15_sbits_p_i[0]" LOC = W29 | PULLDOWN;
+NET "vfat2_15_sbits_n_i[0]" LOC = Y29 | PULLUP;
 
 # G8
-NET "vfat2_15_sbits_p_i[1]" LOC = AA28;
-NET "vfat2_15_sbits_n_i[1]" LOC = AA29;
+NET "vfat2_15_sbits_p_i[1]" LOC = AA28 | PULLDOWN;
+NET "vfat2_15_sbits_n_i[1]" LOC = AA29 | PULLUP;
 
 # G2
-NET "vfat2_15_sbits_p_i[2]" LOC = AA30;
-NET "vfat2_15_sbits_n_i[2]" LOC = AA31;
+NET "vfat2_15_sbits_p_i[2]" LOC = AA30 | PULLDOWN;
+NET "vfat2_15_sbits_n_i[2]" LOC = AA31 | PULLUP;
 
 # G14
-NET "vfat2_15_sbits_p_i[3]" LOC = AB28;
-NET "vfat2_15_sbits_n_i[3]" LOC = AC28;
+NET "vfat2_15_sbits_p_i[3]" LOC = AB28 | PULLDOWN;
+NET "vfat2_15_sbits_n_i[3]" LOC = AC28 | PULLUP;
 
 # G12
-NET "vfat2_15_sbits_p_i[4]" LOC = AD29;
-NET "vfat2_15_sbits_n_i[4]" LOC = AC29;
+NET "vfat2_15_sbits_p_i[4]" LOC = AD29 | PULLDOWN;
+NET "vfat2_15_sbits_n_i[4]" LOC = AC29 | PULLUP;
 
 # F2
-NET "vfat2_15_sbits_p_i[5]" LOC = AE27;
-NET "vfat2_15_sbits_n_i[5]" LOC = AD27;
+NET "vfat2_15_sbits_p_i[5]" LOC = AE27 | PULLDOWN;
+NET "vfat2_15_sbits_n_i[5]" LOC = AD27 | PULLUP;
 
 # F4
-NET "vfat2_15_sbits_p_i[6]" LOC = AE28;
-NET "vfat2_15_sbits_n_i[6]" LOC = AE29;
+NET "vfat2_15_sbits_p_i[6]" LOC = AE28 | PULLDOWN;
+NET "vfat2_15_sbits_n_i[6]" LOC = AE29 | PULLUP;
 
 # F11
-NET "vfat2_15_sbits_p_i[7]" LOC = AF30;
-NET "vfat2_15_sbits_n_i[7]" LOC = AG30;
+NET "vfat2_15_sbits_p_i[7]" LOC = AF30 | PULLDOWN;
+NET "vfat2_15_sbits_n_i[7]" LOC = AG30 | PULLUP;
 
 # F6
 NET "vfat2_15_data_out_p_i" LOC = AF28;
@@ -712,36 +712,36 @@ NET "vfat2_15_data_out_n_i" LOC = AF29;
 ## VFAT2 7
 
 # H7
-NET "vfat2_7_sbits_p_i[0]" LOC = U33;
-NET "vfat2_7_sbits_n_i[0]" LOC = U32;
+NET "vfat2_7_sbits_p_i[0]" LOC = U33 | PULLDOWN;
+NET "vfat2_7_sbits_n_i[0]" LOC = U32 | PULLUP;
 
 # H5
-NET "vfat2_7_sbits_p_i[1]" LOC = T33;
-NET "vfat2_7_sbits_n_i[1]" LOC = T34;
+NET "vfat2_7_sbits_p_i[1]" LOC = T33 | PULLDOWN;
+NET "vfat2_7_sbits_n_i[1]" LOC = T34 | PULLUP;
 
 # H3
-NET "vfat2_7_sbits_p_i[2]" LOC = R33;
-NET "vfat2_7_sbits_n_i[2]" LOC = R34;
+NET "vfat2_7_sbits_p_i[2]" LOC = R33 | PULLDOWN;
+NET "vfat2_7_sbits_n_i[2]" LOC = R34 | PULLUP;
 
 # C19
-NET "vfat2_7_sbits_p_i[3]" LOC = N34;
-NET "vfat2_7_sbits_n_i[3]" LOC = P34;
+NET "vfat2_7_sbits_p_i[3]" LOC = N34 | PULLDOWN;
+NET "vfat2_7_sbits_n_i[3]" LOC = P34 | PULLUP;
 
 # C11
-NET "vfat2_7_sbits_p_i[4]" LOC = N33;
-NET "vfat2_7_sbits_n_i[4]" LOC = M33;
+NET "vfat2_7_sbits_p_i[4]" LOC = N33 | PULLDOWN;
+NET "vfat2_7_sbits_n_i[4]" LOC = M33 | PULLUP;
 
 # C7
-NET "vfat2_7_sbits_p_i[5]" LOC = L33;
-NET "vfat2_7_sbits_n_i[5]" LOC = M32;
+NET "vfat2_7_sbits_p_i[5]" LOC = L33 | PULLDOWN;
+NET "vfat2_7_sbits_n_i[5]" LOC = M32 | PULLUP;
 
 # C17
-NET "vfat2_7_sbits_p_i[6]" LOC = K34;
-NET "vfat2_7_sbits_n_i[6]" LOC = L34;
+NET "vfat2_7_sbits_p_i[6]" LOC = K34 | PULLDOWN;
+NET "vfat2_7_sbits_n_i[6]" LOC = L34 | PULLUP;
 
 # A17
-NET "vfat2_7_sbits_p_i[7]" LOC = K33;
-NET "vfat2_7_sbits_n_i[7]" LOC = J34;
+NET "vfat2_7_sbits_p_i[7]" LOC = K33 | PULLDOWN;
+NET "vfat2_7_sbits_n_i[7]" LOC = J34 | PULLUP;
 
 # A20
 NET "vfat2_7_data_out_p_i" LOC = J31;
@@ -750,36 +750,36 @@ NET "vfat2_7_data_out_n_i" LOC = J32;
 ## VFAT2 6
 
 # A15
-NET "vfat2_6_sbits_p_i[0]" LOC = H34;
-NET "vfat2_6_sbits_n_i[0]" LOC = H33;
+NET "vfat2_6_sbits_p_i[0]" LOC = H34 | PULLDOWN;
+NET "vfat2_6_sbits_n_i[0]" LOC = H33 | PULLUP;
 
 # A11
-NET "vfat2_6_sbits_p_i[1]" LOC = F33;
-NET "vfat2_6_sbits_n_i[1]" LOC = G33;
+NET "vfat2_6_sbits_p_i[1]" LOC = F33 | PULLDOWN;
+NET "vfat2_6_sbits_n_i[1]" LOC = G33 | PULLUP;
 
 # A13
-NET "vfat2_6_sbits_p_i[2]" LOC = E34;
-NET "vfat2_6_sbits_n_i[2]" LOC = F34;
+NET "vfat2_6_sbits_p_i[2]" LOC = E34 | PULLDOWN;
+NET "vfat2_6_sbits_n_i[2]" LOC = F34 | PULLUP;
 
 # A3
-NET "vfat2_6_sbits_p_i[3]" LOC = E32;
-NET "vfat2_6_sbits_n_i[3]" LOC = E33;
+NET "vfat2_6_sbits_p_i[3]" LOC = E32 | PULLDOWN;
+NET "vfat2_6_sbits_n_i[3]" LOC = E33 | PULLUP;
 
 # A9
-NET "vfat2_6_sbits_p_i[4]" LOC = D34;
-NET "vfat2_6_sbits_n_i[4]" LOC = C34;
+NET "vfat2_6_sbits_p_i[4]" LOC = D34 | PULLDOWN;
+NET "vfat2_6_sbits_n_i[4]" LOC = C34 | PULLUP;
 
 # A7
-NET "vfat2_6_sbits_p_i[5]" LOC = C33;
-NET "vfat2_6_sbits_n_i[5]" LOC = B34;
+NET "vfat2_6_sbits_p_i[5]" LOC = C33 | PULLDOWN;
+NET "vfat2_6_sbits_n_i[5]" LOC = B34 | PULLUP;
 
 # A5
-NET "vfat2_6_sbits_p_i[6]" LOC = A33;
-NET "vfat2_6_sbits_n_i[6]" LOC = B33;
+NET "vfat2_6_sbits_p_i[6]" LOC = A33 | PULLDOWN;
+NET "vfat2_6_sbits_n_i[6]" LOC = B33 | PULLUP;
 
 # E14
-NET "vfat2_6_sbits_p_i[7]" LOC = A28;
-NET "vfat2_6_sbits_n_i[7]" LOC = A29;
+NET "vfat2_6_sbits_p_i[7]" LOC = A28 | PULLDOWN;
+NET "vfat2_6_sbits_n_i[7]" LOC = A29 | PULLUP;
 
 # E10
 NET "vfat2_6_data_out_p_i" LOC = C28;
@@ -788,36 +788,36 @@ NET "vfat2_6_data_out_n_i" LOC = B28;
 ## VFAT2 5
 
 # E8
-NET "vfat2_5_sbits_p_i[0]" LOC = B27;
-NET "vfat2_5_sbits_n_i[0]" LOC = C27;
+NET "vfat2_5_sbits_p_i[0]" LOC = B27 | PULLDOWN;
+NET "vfat2_5_sbits_n_i[0]" LOC = C27 | PULLUP;
 
 # E6
-NET "vfat2_5_sbits_p_i[1]" LOC = B26;
-NET "vfat2_5_sbits_n_i[1]" LOC = A26;
+NET "vfat2_5_sbits_p_i[1]" LOC = B26 | PULLDOWN;
+NET "vfat2_5_sbits_n_i[1]" LOC = A26 | PULLUP;
 
 # E4
-NET "vfat2_5_sbits_p_i[2]" LOC = B25;
-NET "vfat2_5_sbits_n_i[2]" LOC = A25;
+NET "vfat2_5_sbits_p_i[2]" LOC = B25 | PULLDOWN;
+NET "vfat2_5_sbits_n_i[2]" LOC = A25 | PULLUP;
 
 # I2
-NET "vfat2_5_sbits_p_i[3]" LOC = A23;
-NET "vfat2_5_sbits_n_i[3]" LOC = A24;
+NET "vfat2_5_sbits_p_i[3]" LOC = A23 | PULLDOWN;
+NET "vfat2_5_sbits_n_i[3]" LOC = A24 | PULLUP;
 
 # I4
-NET "vfat2_5_sbits_p_i[4]" LOC = B23;
-NET "vfat2_5_sbits_n_i[4]" LOC = C23;
+NET "vfat2_5_sbits_p_i[4]" LOC = B23 | PULLDOWN;
+NET "vfat2_5_sbits_n_i[4]" LOC = C23 | PULLUP;
 
 # I6
-NET "vfat2_5_sbits_p_i[5]" LOC = B21;
-NET "vfat2_5_sbits_n_i[5]" LOC = B22;
+NET "vfat2_5_sbits_p_i[5]" LOC = B21 | PULLDOWN;
+NET "vfat2_5_sbits_n_i[5]" LOC = B22 | PULLUP;
 
 # I8
-NET "vfat2_5_sbits_p_i[6]" LOC = A20;
-NET "vfat2_5_sbits_n_i[6]" LOC = A21;
+NET "vfat2_5_sbits_p_i[6]" LOC = A20 | PULLDOWN;
+NET "vfat2_5_sbits_n_i[6]" LOC = A21 | PULLUP;
 
 # I10
-NET "vfat2_5_sbits_p_i[7]" LOC = B20;
-NET "vfat2_5_sbits_n_i[7]" LOC = C19;
+NET "vfat2_5_sbits_p_i[7]" LOC = B20 | PULLDOWN;
+NET "vfat2_5_sbits_n_i[7]" LOC = C19 | PULLUP;
 
 # I16
 NET "vfat2_5_data_out_p_i" LOC = A18;
@@ -826,36 +826,36 @@ NET "vfat2_5_data_out_n_i" LOC = A19;
 ## VFAT2 4
 
 # I18
-NET "vfat2_4_sbits_p_i[0]" LOC = B18;
-NET "vfat2_4_sbits_n_i[0]" LOC = C18;
+NET "vfat2_4_sbits_p_i[0]" LOC = B18 | PULLDOWN;
+NET "vfat2_4_sbits_n_i[0]" LOC = C18 | PULLUP;
 
 # M6
-NET "vfat2_4_sbits_p_i[1]" LOC = C17;
-NET "vfat2_4_sbits_n_i[1]" LOC = B17;
+NET "vfat2_4_sbits_p_i[1]" LOC = C17 | PULLDOWN;
+NET "vfat2_4_sbits_n_i[1]" LOC = B17 | PULLUP;
 
 # M12
-NET "vfat2_4_sbits_p_i[2]" LOC = A16;
-NET "vfat2_4_sbits_n_i[2]" LOC = B16;
+NET "vfat2_4_sbits_p_i[2]" LOC = A16 | PULLDOWN;
+NET "vfat2_4_sbits_n_i[2]" LOC = B16 | PULLUP;
 
 # M20
-NET "vfat2_4_sbits_p_i[3]" LOC = D15;
-NET "vfat2_4_sbits_n_i[3]" LOC = C15;
+NET "vfat2_4_sbits_p_i[3]" LOC = D15 | PULLDOWN;
+NET "vfat2_4_sbits_n_i[3]" LOC = C15 | PULLUP;
 
 # M16
-NET "vfat2_4_sbits_p_i[4]" LOC = A15;
-NET "vfat2_4_sbits_n_i[4]" LOC = B15;
+NET "vfat2_4_sbits_p_i[4]" LOC = A15 | PULLDOWN;
+NET "vfat2_4_sbits_n_i[4]" LOC = B15 | PULLUP;
 
 # L2
-NET "vfat2_4_sbits_p_i[5]" LOC = D14;
-NET "vfat2_4_sbits_n_i[5]" LOC = C14;
+NET "vfat2_4_sbits_p_i[5]" LOC = D14 | PULLDOWN;
+NET "vfat2_4_sbits_n_i[5]" LOC = C14 | PULLUP;
 
 # L12
-NET "vfat2_4_sbits_p_i[6]" LOC = C13;
-NET "vfat2_4_sbits_n_i[6]" LOC = C12;
+NET "vfat2_4_sbits_p_i[6]" LOC = C13 | PULLDOWN;
+NET "vfat2_4_sbits_n_i[6]" LOC = C12 | PULLUP;
 
 # L20
-NET "vfat2_4_sbits_p_i[7]" LOC = D11;
-NET "vfat2_4_sbits_n_i[7]" LOC = E11;
+NET "vfat2_4_sbits_p_i[7]" LOC = D11 | PULLDOWN;
+NET "vfat2_4_sbits_n_i[7]" LOC = E11 | PULLUP;
 
 # L15
 NET "vfat2_4_data_out_p_i" LOC = J11;
@@ -864,36 +864,36 @@ NET "vfat2_4_data_out_n_i" LOC = J10;
 ## VFAT2 3
 
 # A14
-NET "vfat2_3_sbits_p_i[0]" LOC = J30;
-NET "vfat2_3_sbits_n_i[0]" LOC = K29;
+NET "vfat2_3_sbits_p_i[0]" LOC = J30 | PULLDOWN;
+NET "vfat2_3_sbits_n_i[0]" LOC = K29 | PULLUP;
 
 # C3
-NET "vfat2_3_sbits_p_i[1]" LOC = K32;
-NET "vfat2_3_sbits_n_i[1]" LOC = K31;
+NET "vfat2_3_sbits_p_i[1]" LOC = K32 | PULLDOWN;
+NET "vfat2_3_sbits_n_i[1]" LOC = K31 | PULLUP;
 
 # C1
-NET "vfat2_3_sbits_p_i[2]" LOC = M31;
-NET "vfat2_3_sbits_n_i[2]" LOC = L31;
+NET "vfat2_3_sbits_p_i[2]" LOC = M31 | PULLDOWN;
+NET "vfat2_3_sbits_n_i[2]" LOC = L31 | PULLUP;
 
 # C18
-NET "vfat2_3_sbits_p_i[3]" LOC = M30;
-NET "vfat2_3_sbits_n_i[3]" LOC = N30;
+NET "vfat2_3_sbits_p_i[3]" LOC = M30 | PULLDOWN;
+NET "vfat2_3_sbits_n_i[3]" LOC = N30 | PULLUP;
 
 # C9
-NET "vfat2_3_sbits_p_i[4]" LOC = N32;
-NET "vfat2_3_sbits_n_i[4]" LOC = P32;
+NET "vfat2_3_sbits_p_i[4]" LOC = N32 | PULLDOWN;
+NET "vfat2_3_sbits_n_i[4]" LOC = P32 | PULLUP;
 
 # C5
-NET "vfat2_3_sbits_p_i[5]" LOC = P31;
-NET "vfat2_3_sbits_n_i[5]" LOC = P30;
+NET "vfat2_3_sbits_p_i[5]" LOC = P31 | PULLDOWN;
+NET "vfat2_3_sbits_n_i[5]" LOC = P30 | PULLUP;
 
 # C15
-NET "vfat2_3_sbits_p_i[6]" LOC = R31;
-NET "vfat2_3_sbits_n_i[6]" LOC = R32;
+NET "vfat2_3_sbits_p_i[6]" LOC = R31 | PULLDOWN;
+NET "vfat2_3_sbits_n_i[6]" LOC = R32 | PULLUP;
 
 # H4
-NET "vfat2_3_sbits_p_i[7]" LOC = T30;
-NET "vfat2_3_sbits_n_i[7]" LOC = T31;
+NET "vfat2_3_sbits_p_i[7]" LOC = T30 | PULLDOWN;
+NET "vfat2_3_sbits_n_i[7]" LOC = T31 | PULLUP;
 
 # H9
 NET "vfat2_3_data_out_p_i" LOC = U31;
@@ -902,36 +902,36 @@ NET "vfat2_3_data_out_n_i" LOC = U30;
 ## VFAT2 2
 
 # E15
-NET "vfat2_2_sbits_p_i[0]" LOC = F28;
-NET "vfat2_2_sbits_n_i[0]" LOC = E28;
+NET "vfat2_2_sbits_p_i[0]" LOC = F28 | PULLDOWN;
+NET "vfat2_2_sbits_n_i[0]" LOC = E28 | PULLUP;
 
 # E11
-NET "vfat2_2_sbits_p_i[1]" LOC = C29;
-NET "vfat2_2_sbits_n_i[1]" LOC = D29;
+NET "vfat2_2_sbits_p_i[1]" LOC = C29 | PULLDOWN;
+NET "vfat2_2_sbits_n_i[1]" LOC = D29 | PULLUP;
 
 # A1
-NET "vfat2_2_sbits_p_i[2]" LOC = C32;
-NET "vfat2_2_sbits_n_i[2]" LOC = B32;
+NET "vfat2_2_sbits_p_i[2]" LOC = C32 | PULLDOWN;
+NET "vfat2_2_sbits_n_i[2]" LOC = B32 | PULLUP;
 
 # E18
-NET "vfat2_2_sbits_p_i[3]" LOC = C30;
-NET "vfat2_2_sbits_n_i[3]" LOC = D30;
+NET "vfat2_2_sbits_p_i[3]" LOC = C30 | PULLDOWN;
+NET "vfat2_2_sbits_n_i[3]" LOC = D30 | PULLUP;
 
 # E17
-NET "vfat2_2_sbits_p_i[4]" LOC = E29;
-NET "vfat2_2_sbits_n_i[4]" LOC = F29;
+NET "vfat2_2_sbits_p_i[4]" LOC = E29 | PULLDOWN;
+NET "vfat2_2_sbits_n_i[4]" LOC = F29 | PULLUP;
 
 # A12
-NET "vfat2_2_sbits_p_i[5]" LOC = F31;
-NET "vfat2_2_sbits_n_i[5]" LOC = E31;
+NET "vfat2_2_sbits_p_i[5]" LOC = F31 | PULLDOWN;
+NET "vfat2_2_sbits_n_i[5]" LOC = E31 | PULLUP;
 
 # A4
-NET "vfat2_2_sbits_p_i[6]" LOC = F30;
-NET "vfat2_2_sbits_n_i[6]" LOC = G30;
+NET "vfat2_2_sbits_p_i[6]" LOC = F30 | PULLDOWN;
+NET "vfat2_2_sbits_n_i[6]" LOC = G30 | PULLUP;
 
 # A18
-NET "vfat2_2_sbits_p_i[7]" LOC = G32;
-NET "vfat2_2_sbits_n_i[7]" LOC = H32;
+NET "vfat2_2_sbits_p_i[7]" LOC = G32 | PULLDOWN;
+NET "vfat2_2_sbits_n_i[7]" LOC = H32 | PULLUP;
 
 # A6
 NET "vfat2_2_data_out_p_i" LOC = G31;
@@ -940,36 +940,36 @@ NET "vfat2_2_data_out_n_i" LOC = H30;
 ## VFAT2 1
 
 # I1
-NET "vfat2_1_sbits_p_i[0]" LOC = C20;
-NET "vfat2_1_sbits_n_i[0]" LOC = D20;
+NET "vfat2_1_sbits_p_i[0]" LOC = C20 | PULLDOWN;
+NET "vfat2_1_sbits_n_i[0]" LOC = D20 | PULLUP;
 
 # I13
-NET "vfat2_1_sbits_p_i[1]" LOC = D21;
-NET "vfat2_1_sbits_n_i[1]" LOC = E21;
+NET "vfat2_1_sbits_p_i[1]" LOC = D21 | PULLDOWN;
+NET "vfat2_1_sbits_n_i[1]" LOC = E21 | PULLUP;
 
 # I20
-NET "vfat2_1_sbits_p_i[2]" LOC = C22;
-NET "vfat2_1_sbits_n_i[2]" LOC = D22;
+NET "vfat2_1_sbits_p_i[2]" LOC = C22 | PULLDOWN;
+NET "vfat2_1_sbits_n_i[2]" LOC = D22 | PULLUP;
 
 # I7
-NET "vfat2_1_sbits_p_i[3]" LOC = E22;
-NET "vfat2_1_sbits_n_i[3]" LOC = E23;
+NET "vfat2_1_sbits_p_i[3]" LOC = E22 | PULLDOWN;
+NET "vfat2_1_sbits_n_i[3]" LOC = E23 | PULLUP;
 
 # E9
-NET "vfat2_1_sbits_p_i[4]" LOC = D24;
-NET "vfat2_1_sbits_n_i[4]" LOC = E24;
+NET "vfat2_1_sbits_p_i[4]" LOC = D24 | PULLDOWN;
+NET "vfat2_1_sbits_n_i[4]" LOC = E24 | PULLUP;
 
 # E2
-NET "vfat2_1_sbits_p_i[5]" LOC = C24;
-NET "vfat2_1_sbits_n_i[5]" LOC = C25;
+NET "vfat2_1_sbits_p_i[5]" LOC = C24 | PULLDOWN;
+NET "vfat2_1_sbits_n_i[5]" LOC = C25 | PULLUP;
 
 # E1
-NET "vfat2_1_sbits_p_i[6]" LOC = D25;
-NET "vfat2_1_sbits_n_i[6]" LOC = D26;
+NET "vfat2_1_sbits_p_i[6]" LOC = D25 | PULLDOWN;
+NET "vfat2_1_sbits_n_i[6]" LOC = D26 | PULLUP;
 
 # E3
-NET "vfat2_1_sbits_p_i[7]" LOC = E26;
-NET "vfat2_1_sbits_n_i[7]" LOC = F26;
+NET "vfat2_1_sbits_p_i[7]" LOC = E26 | PULLDOWN;
+NET "vfat2_1_sbits_n_i[7]" LOC = F26 | PULLUP;
 
 # E5
 NET "vfat2_1_data_out_p_i" LOC = D27;
@@ -978,36 +978,36 @@ NET "vfat2_1_data_out_n_i" LOC = E27;
 ## VFAT2 0
 
 # L17
-NET "vfat2_0_sbits_p_i[0]" LOC = K11;
-NET "vfat2_0_sbits_n_i[0]" LOC = L11;
+NET "vfat2_0_sbits_p_i[0]" LOC = K11 | PULLDOWN;
+NET "vfat2_0_sbits_n_i[0]" LOC = L11 | PULLUP;
 
 # L3
-NET "vfat2_0_sbits_p_i[1]" LOC = G11;
-NET "vfat2_0_sbits_n_i[1]" LOC = F11;
+NET "vfat2_0_sbits_p_i[1]" LOC = G11 | PULLDOWN;
+NET "vfat2_0_sbits_n_i[1]" LOC = F11 | PULLUP;
 
 # L18
-NET "vfat2_0_sbits_p_i[2]" LOC = D12;
-NET "vfat2_0_sbits_n_i[2]" LOC = E12;
+NET "vfat2_0_sbits_p_i[2]" LOC = D12 | PULLDOWN;
+NET "vfat2_0_sbits_n_i[2]" LOC = E12 | PULLUP;
 
 # L16
-NET "vfat2_0_sbits_p_i[3]" LOC = E13;
-NET "vfat2_0_sbits_n_i[3]" LOC = F13;
+NET "vfat2_0_sbits_p_i[3]" LOC = E13 | PULLDOWN;
+NET "vfat2_0_sbits_n_i[3]" LOC = F13 | PULLUP;
 
 # L6
-NET "vfat2_0_sbits_p_i[4]" LOC = F14;
-NET "vfat2_0_sbits_n_i[4]" LOC = E14;
+NET "vfat2_0_sbits_p_i[4]" LOC = F14 | PULLDOWN;
+NET "vfat2_0_sbits_n_i[4]" LOC = E14 | PULLUP;
 
 # M17
-NET "vfat2_0_sbits_p_i[5]" LOC = G15;
-NET "vfat2_0_sbits_n_i[5]" LOC = F15;
+NET "vfat2_0_sbits_p_i[5]" LOC = G15 | PULLDOWN;
+NET "vfat2_0_sbits_n_i[5]" LOC = F15 | PULLUP;
 
 # M14
-NET "vfat2_0_sbits_p_i[6]" LOC = E16;
-NET "vfat2_0_sbits_n_i[6]" LOC = D16;
+NET "vfat2_0_sbits_p_i[6]" LOC = E16 | PULLDOWN;
+NET "vfat2_0_sbits_n_i[6]" LOC = D16 | PULLUP;
 
 # M2
-NET "vfat2_0_sbits_p_i[7]" LOC = E18;
-NET "vfat2_0_sbits_n_i[7]" LOC = D17;
+NET "vfat2_0_sbits_p_i[7]" LOC = E18 | PULLDOWN;
+NET "vfat2_0_sbits_n_i[7]" LOC = D17 | PULLUP;
 
 # I14
 NET "vfat2_0_data_out_p_i" LOC = E19;
