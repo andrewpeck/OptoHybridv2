@@ -102,10 +102,11 @@ port
     GTX0_RXP_IN                             : in   std_logic;
     ------------------------ Receive Ports - RX PLL Ports ----------------------
     GTX0_GTXRXRESET_IN                      : in   std_logic;
-    GTX0_MGTREFCLKRX_IN                     : in   std_logic;
+    GTX0_MGTREFCLKRX_IN                     : in   std_logic_vector (1 downto 0);
     GTX0_PLLRXRESET_IN                      : in   std_logic;
     GTX0_RXPLLLKDET_OUT                     : out  std_logic;
     GTX0_RXRESETDONE_OUT                    : out  std_logic;
+    GTX0_RXPLLREFSELDY                      : in   std_logic_vector(2 downto 0);
     ---------------- Transmit Ports - 8b10b Encoder Control Ports --------------
     GTX0_TXCHARISK_IN                       : in   std_logic_vector(1 downto 0);
     ------------------ Transmit Ports - TX Data Path interface -----------------
@@ -117,7 +118,8 @@ port
     GTX0_TXP_OUT                            : out  std_logic;
     ----------------------- Transmit Ports - TX PLL Ports ----------------------
     GTX0_GTXTXRESET_IN                      : in   std_logic;
-    GTX0_TXRESETDONE_OUT                    : out  std_logic
+    GTX0_TXRESETDONE_OUT                    : out  std_logic;
+    GTX0_TXPLLREFSELDY                      : in   std_logic_vector(2 downto 0)
 );
 
 
@@ -185,6 +187,7 @@ port
     PLLRXRESET_IN                           : in   std_logic;
     RXPLLLKDET_OUT                          : out  std_logic;
     RXRESETDONE_OUT                         : out  std_logic;
+    RXPLLREFSELDY                           : in   std_logic_vector(2 downto 0);
     ---------------- Transmit Ports - 8b10b Encoder Control Ports --------------
     TXCHARISK_IN                            : in   std_logic_vector(1 downto 0);
     ------------------ Transmit Ports - TX Data Path interface -----------------
@@ -199,9 +202,8 @@ port
     MGTREFCLKTX_IN                          : in   std_logic_vector(1 downto 0);
     PLLTXRESET_IN                           : in   std_logic;
     TXPLLLKDET_OUT                          : out  std_logic;
-    TXRESETDONE_OUT                         : out  std_logic
-
-
+    TXRESETDONE_OUT                         : out  std_logic;
+    TXPLLREFSELDY                           : in   std_logic_vector(2 downto 0)
 );
 end component;
 
@@ -216,7 +218,7 @@ begin
                      
 
    
-    gtx0_mgtrefclkrx_i <= (tied_to_ground_i & GTX0_MGTREFCLKRX_IN);
+    gtx0_mgtrefclkrx_i <= (GTX0_MGTREFCLKRX_IN (1 downto 0));
  
     --------------------------- GTX Instances  -------------------------------   
 
@@ -263,6 +265,7 @@ begin
         PLLRXRESET_IN                   =>      GTX0_PLLRXRESET_IN,
         RXPLLLKDET_OUT                  =>      GTX0_RXPLLLKDET_OUT,
         RXRESETDONE_OUT                 =>      GTX0_RXRESETDONE_OUT,
+        RXPLLREFSELDY                   =>      GTX0_RXPLLREFSELDY,
         ---------------- Transmit Ports - 8b10b Encoder Control Ports --------------
         TXCHARISK_IN                    =>      GTX0_TXCHARISK_IN,
         ------------------ Transmit Ports - TX Data Path interface -----------------
@@ -277,7 +280,8 @@ begin
         MGTREFCLKTX_IN                  =>      gtx0_mgtrefclkrx_i,
         PLLTXRESET_IN                   =>      tied_to_ground_i,
         TXPLLLKDET_OUT                  =>      open,
-        TXRESETDONE_OUT                 =>      GTX0_TXRESETDONE_OUT
+        TXRESETDONE_OUT                 =>      GTX0_TXRESETDONE_OUT,
+        TXPLLREFSELDY                   =>      GTX0_TXPLLREFSELDY
 
     );
      

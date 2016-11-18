@@ -1,6 +1,8 @@
 module trigger_links_v (
 
-  input mgt_refclk, // 160 MHz QPLL Clock
+  input mgt_refclk0, // 160 MHz QPLL Clock
+  input mgt_refclk1, // 160 MHz QPLL Clock
+  input mgt_refclk_sel,
 
 	input gtx_reset,
 
@@ -59,9 +61,11 @@ gem_fiber_out  gem_fibers_out   (
   .TRG_TX_N            (trg_tx_n[igem]), // pick a fiber
 
   .GEM_DATA            (link[igem][55:0]),
-  .GEM_OVERFLOW        (overflow),
+  .GEM_OVERFLOW        (0),
 
-  .TRG_TX_REFCLK       (mgt_refclk),          // QPLL 160 from MGT clk
+  .TRG_TX_REFCLK0      (mgt_refclk0),         // QPLL 160 from MGT clk
+  .TRG_TX_REFCLK1      (mgt_refclk1),         // QPLL 160 from MGT clk
+  .TRG_TX_REFCLK_SEL   (mgt_refclk_sel),      // QPLL 160 from MGT clk
   .TRG_TXUSRCLK        (usrclk),              // get 160 from TXOUTCLK (times 2)
   .TRG_CLK80           (usrclk2),             // get 80 from TXOUTCLK
   .TRG_GTXTXRST        (gtx_reset),           // maybe Manual "reset" only

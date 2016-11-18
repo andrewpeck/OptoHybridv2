@@ -93,7 +93,9 @@ module TRG_TX_BUF_BYPASS # ( parameter   WRAPPER_SIM_GTXRESET_SPEEDUP    = 0)   
   input           GTX0_TXPMASETPHASE_IN,
   //--------------------- Transmit Ports - TX PLL Ports ----------------------
   input           GTX0_GTXTXRESET_IN,
-  input           GTX0_MGTREFCLKTX_IN,
+  input           GTX0_MGTREFCLKTX_IN0,
+  input           GTX0_MGTREFCLKTX_IN1,
+  input           GTX0_MGTREFCLKSEL_IN,
   input           GTX0_PLLTXRESET_IN,
   output          GTX0_TXPLLLKDET_OUT,
   output          GTX0_TXRESETDONE_OUT
@@ -152,7 +154,8 @@ gtx0_trg_tx_buf_bypass_i
   .TXPMASETPHASE_IN               (GTX0_TXPMASETPHASE_IN),
   //--------------------- Transmit Ports - TX PLL Ports ----------------------
   .GTXTXRESET_IN                  (GTX0_GTXTXRESET_IN),
-  .MGTREFCLKTX_IN                 ({tied_to_ground_i , GTX0_MGTREFCLKTX_IN}),
+  .MGTREFCLKTX_IN                 ({GTX0_MGTREFCLKTX_IN1 , GTX0_MGTREFCLKTX_IN0}),
+  .MGTREFCLKSEL_IN                (GTX0_MGTREFCLKSEL_IN),
   .PLLTXRESET_IN                  (GTX0_PLLTXRESET_IN),
   .TXPLLLKDET_OUT                 (GTX0_TXPLLLKDET_OUT),
   .TXRESETDONE_OUT                (GTX0_TXRESETDONE_OUT)
