@@ -37,7 +37,9 @@ port(
    
     vfat_sbit_clusters_o    : out sbit_cluster_array_t(7 downto 0);
 
-    overflow_o              : out std_logic
+    overflow_o              : out std_logic;
+    
+    cluster_count_o         : out std_logic_vector(7 downto 0)
 
 );
 end sbits;
@@ -101,7 +103,8 @@ begin
         cluster5            => vfat_sbit_clusters_o(5),
         cluster6            => vfat_sbit_clusters_o(6),
         cluster7            => vfat_sbit_clusters_o(7),
-        overflow            => overflow_o
+        overflow            => overflow_o,
+        cluster_count       => cluster_count_o
     );
 
     chipscope_icon_inst : entity work.chipscope_icon

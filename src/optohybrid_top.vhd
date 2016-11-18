@@ -37,7 +37,7 @@ port(
     
     vfat2_scl_o             : out std_logic_vector(5 downto 0);
     vfat2_sda_io            : inout std_logic_vector(5 downto 0);
-    
+
     -- vfat2_daco_v_i          : in std_logic_vector(2 downto 0);
     -- vfat2_daco_i_i          : in std_logic_vector(2 downto 0);
     
@@ -190,7 +190,7 @@ port(
     ext_trigger_i           : in std_logic;
     ext_sbits_o             : out std_logic_vector(5 downto 0);
     
-    header_io               : in std_logic_vector(15 downto 0);
+    header_io               : out std_logic_vector(15 downto 0);
 
     xadc_p_i                : in std_logic_vector(5 downto 0);
     xadc_n_i                : in std_logic_vector(5 downto 0);
@@ -207,8 +207,11 @@ port(
     
     --== GTX ==--
     
-    mgt_clk_p_i             : in std_logic;
-    mgt_clk_n_i             : in std_logic;
+    qpll_mgt_clk_p_i        : in std_logic;
+    qpll_mgt_clk_n_i        : in std_logic;
+
+    gbt_mgt_clk_p_i         : in std_logic;
+    gbt_mgt_clk_n_i         : in std_logic;
 
     mgt_rx_p_i              : in std_logic_vector(4 downto 0); -- 0 = Tracking and control
     mgt_rx_n_i              : in std_logic_vector(4 downto 0); -- 1 to 4 = trigger links
@@ -232,7 +235,12 @@ end optohybrid_top;
 architecture Behavioral of optohybrid_top is
 
     --== Buffers ==--
+
+    constant scl_hold_time      : integer := 127;
     
+    signal scl_led              : std_logic;
+    signal scl_led_countdown    : integer range 0 to 127 := 127;
+
     signal vfat2_mclk_b         : std_logic; 
     signal vfat2_reset_b        : std_logic;
     signal vfat2_t1_b           : std_logic;
@@ -247,21 +255,32 @@ architecture Behavioral of optohybrid_top is
     signal qpll_clk_b           : std_logic;
     signal qpll_reset_b         : std_logic;
     signal qpll_locked_b        : std_logic;
-    signal qpll_pll_locked_b    : std_logic;
     
     --== SBit cluster packer ==--
     
     signal sbit_overflow        : std_logic;
     signal vfat_sbit_clusters   : sbit_cluster_array_t(7 downto 0);
+    signal cluster_count        : std_logic_vector(7 downto 0);
     
-    --== Global signals ==--
+    --== Clocking signals ==--
 
     signal ref_clk              : std_logic;
     signal clk_1x               : std_logic;
     signal clk_2x               : std_logic;
     signal clk_4x               : std_logic;
 
-    signal mgt_refclk           : std_logic;
+    signal qpll_mgt_refclk      : std_logic;
+    signal gbt_mgt_refclk       : std_logic;
+    
+    signal mmcm_locked          : std_logic;
+    signal qpll_pll_locked      : std_logic;
+    signal gbt_pll_locked       : std_logic;
+    
+    signal qpll_clk_led         : std_logic;
+    signal gbt_clk_led          : std_logic;
+
+    --== Global signals ==--
+
     signal reset                : std_logic;    
 
     --== GTX ==--
@@ -317,6 +336,7 @@ architecture Behavioral of optohybrid_top is
 begin
 
     reset <= '0';
+    gtx_reset <= not mmcm_locked;
     
     --==============--
     --== Clocking ==--
@@ -326,11 +346,14 @@ begin
     port map(
         qpll_clk_i      => qpll_clk_b,
         gbt_clk_i       => gbt_clk,
-        clk_source_i    => clk_source,
+        clk_source_i    => not clk_source,
         ref_clk_o       => ref_clk,
         clk_1x_o        => clk_1x,
         clk_2x_o        => clk_2x,
-        clk_4x_o        => clk_4x        
+        clk_4x_o        => clk_4x,
+        locked_o        => mmcm_locked,
+        qpll_blinker_o  => qpll_clk_led,
+        gbt_blinker_o   => gbt_clk_led
     );
         
     --======================--
@@ -352,9 +375,46 @@ begin
         ext_sbits_o         => ext_sbits_o        
     );
 
-    --=================--
-    --== Test points ==--
-    --=================--   
+    --==========================--
+    --== LEDs and test points ==--
+    --==========================--   
+
+    -- produce a longer pulse when i2c is active
+    process(clk_1x)
+    begin
+        if (rising_edge(clk_1x)) then
+            if (( vfat2_scl_b(0) or vfat2_scl_b(1) or vfat2_scl_b(2) or vfat2_scl_b(3) or vfat2_scl_b(4) or vfat2_scl_b(5))='1') then
+                scl_led_countdown <= scl_hold_time;
+            elsif (scl_led_countdown /= 0) then
+                scl_led_countdown <= scl_led_countdown - 1;
+            else
+                scl_led_countdown <= scl_led_countdown;
+            end if;
+        end if;
+    end process;
+
+    scl_led <= '0' when scl_led_countdown = 0 else '1';
+
+    header_io(15) <= scl_led xor mmcm_locked;
+    header_io(14) <= qpll_clk_led; -- i2c mirror
+    header_io(13) <= gbt_clk_led;
+    
+    i_cluster_rate_cnt: entity work.rate_counter
+    generic map(
+        g_CLK_FREQUENCY         => x"02638e98", -- 40MHz LHC frequency
+        g_COUNTER_WIDTH         => 32,
+        g_INCREMENTER_WIDTH     => 8,
+        g_PROGRESS_BAR_WIDTH    => 13,          -- we'll have 13 LEDs as a rate progress bar
+        g_PROGRESS_BAR_STEP     => 20_000       -- each bar is 20KHz
+        g_SPEEDUP_FACTOR        => 4            -- update 16 times per second
+    )
+    port map(
+        clk_i           => clk_1x,
+        reset_i         => reset,
+        increment_i     => cluster_count,
+        rate_o          => open,
+        progress_bar_o  => header_io(12 downto 0)
+    );
     
     tp_1p_o  <= '0';
     tp_1n_o  <= '0';
@@ -484,7 +544,9 @@ begin
 
     trigger_links_inst : entity work.trigger_links
     port map (
-        mgt_refclk => mgt_refclk, -- 160 MHz Reference Clock 
+        mgt_refclk0    => mgt_refclk, -- 160 MHz Reference Clock 0
+        mgt_refclk1    => mgt_refclk, -- 160 MHz Reference Clock 1
+        mgt_refclk_sel => mgt_refclk, -- 160 MHz Reference Clock Select
 
 		gtx_reset  => gtx_reset,
 
@@ -631,7 +693,7 @@ begin
         gbt_link_error_i    => gbt_error,  
         gbt_evt_sent_i      => gbt_evt_sent,  
         qpll_locked_i       => qpll_locked_b,
-        qpll_pll_locked_i   => qpll_pll_locked_b
+        qpll_pll_locked_i   => qpll_pll_locked
     );
     
     --============--
@@ -672,7 +734,7 @@ begin
         wb_slv_req_i        => wb_s_req(WB_SLV_STAT),
         wb_slv_res_o        => wb_s_res(WB_SLV_STAT), 
         qpll_locked_i       => qpll_locked_b,
-        qpll_pll_locked_i   => qpll_pll_locked_b
+        qpll_pll_locked_i   => qpll_pll_locked
     );
 
     --=========================--
@@ -690,7 +752,8 @@ begin
         vfat2_sbit_mask_i       => vfat2_sbit_mask,
         vfat_sbit_clusters_o    => vfat_sbit_clusters,
         oneshot_en_i            => ('1'),
-        overflow_o              => sbit_overflow
+        overflow_o              => sbit_overflow,
+        cluster_count_o         => cluster_count
     );
     
     --=============--
@@ -829,7 +892,15 @@ begin
         qpll_clk_o              => qpll_clk_b,
         qpll_reset_i            => qpll_reset_b,
         qpll_locked_o           => qpll_locked_b,
-        qpll_pll_locked_o       => qpll_pll_locked_b
+        -- MGT clocks
+        qpll_mgt_refclk_p_i     => qpll_mgt_clk_p_i,
+        qpll_mgt_refclk_n_i     => qpll_mgt_clk_n_i,
+        
+        gbt_mgt_refclk_p_i      => gbt_mgt_clk_p_i,
+        gbt_mgt_refclk_n_i      => gbt_mgt_clk_n_i,
+        
+        qpll_mgt_refclk_o       => qpll_mgt_refclk,
+        gbt_mgt_refclk_o        => gbt_mgt_refclk
     );
  
 end Behavioral;
