@@ -26,14 +26,16 @@ use work.types_pkg.all;
 entity gtx is
 port(
 
-    mgt_refclk_n_i  : in std_logic;
-    mgt_refclk_p_i  : in std_logic;
-    mgt_refclk_o    : out std_logic;
+    mgt_refclk0_i   : in std_logic;
+    mgt_refclk1_i   : in std_logic;
+
+    mgt_refclk_sel  : in std_logic;
+
     ref_clk_i       : in std_logic;
 
-    reset_i         : in std_logic;
-
     gtx_clk_o       : out std_logic;
+
+    reset_i         : in std_logic;
 
     tx_kchar_i      : in std_logic_vector(1 downto 0);
     tx_data_i       : in std_logic_vector(15 downto 0);
@@ -50,7 +52,7 @@ end gtx;
 
 architecture Behavioral of gtx is
 
-    signal mgt_refclk       : std_logic;
+    signal mgt_refclk       : std_logic_vector (1 downto 0);
     signal mgt_reset        : std_logic;
     signal mgt_rst_cnt      : integer range 0 to 67_108_863;
 
@@ -60,18 +62,12 @@ architecture Behavioral of gtx is
     signal usr_clk          : std_logic;
     signal usr_clk2         : std_logic;
 
+    signal refclk_sel       : std_logic_vector (2 downto 0);
+
 begin
 
-    ibufds_gtxe1_inst : ibufds_gtxe1
-    port map(
-        o       => mgt_refclk,
-        odiv2   => open,
-        ceb     => '0',
-        i       => mgt_refclk_p_i,
-        ib      => mgt_refclk_n_i
-    );
-
-    --
+    refclk_sel <= "000" when (mgt_refclk_sel = '1') else "010" ; -- 010 to select QPLL, 000 to select GBT
+    mgt_refclk <= (mgt_refclk1_i & mgt_refclk0_i);           -- join together the two clocks into a 2 bit vector
 
     usr_clk_bufg : bufg
     port map(
@@ -81,9 +77,7 @@ begin
 
     gtx_clk_o <= usr_clk2;
 
-
     rx_error_o(0) <= rx_disperr(0) or rx_disperr(1) or rx_notintable(0) or rx_notintable(1);
-
 
     sfp_gtx_inst : entity work.sfp_gtx
     port map(
@@ -100,7 +94,8 @@ begin
         GTX0_RXN_IN                 => rx_n_i(0),
         GTX0_RXP_IN                 => rx_p_i(0),
         GTX0_GTXRXRESET_IN          => (mgt_reset or reset_i),
-        GTX0_MGTREFCLKRX_IN         => mgt_refclk,
+        GTX0_MGTREFCLKRX_IN         => mgt_refclk(1 downto 0),
+        GTX0_RXPLLREFSELDY          => (refclk_sel),
         GTX0_PLLRXRESET_IN          => reset_i,
         GTX0_RXPLLLKDET_OUT         => open,
         GTX0_RXRESETDONE_OUT        => open,
@@ -111,7 +106,8 @@ begin
         GTX0_TXN_OUT                => tx_n_o(0),
         GTX0_TXP_OUT                => tx_p_o(0),
         GTX0_GTXTXRESET_IN          => (mgt_reset or reset_i),
-        GTX0_TXRESETDONE_OUT        => open
+        GTX0_TXRESETDONE_OUT        => open,
+        GTX0_TXPLLREFSELDY          => (refclk_sel)
     );
     
     --== Control Reset signal ==--

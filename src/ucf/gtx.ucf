@@ -1,22 +1,22 @@
 # This file constraints the GTX signals
 
-INST "gtx_inst/sfp_gtx_inst/gtx0_sfp_gtx_i/gtxe1_i" LOC = GTXE1_X0Y19;
+#INST "gtx_inst/sfp_gtx_inst/gtx0_sfp_gtx_i/gtxe1_i" LOC = GTXE1_X0Y19;
+
+#INST "buffers_inst/ibufds_gtxe1_gbt"  LOC = GTXE1_X0Y19;
+#INST "buffers_inst/ibufds_gtxe1_qpll" LOC = GTXE1_X0Y15;
+
 #INST gtx_inst/sfp_gtx_inst/gtx_trig_0a_sfp_gtx_i/gtxe1_i LOC=GTXE1_X0Y12;
 #INST gtx_inst/sfp_gtx_inst/gtx_trig_1a_sfp_gtx_i/gtxe1_i LOC=GTXE1_X0Y13;
 #INST gtx_inst/sfp_gtx_inst/gtx_trig_0b_sfp_gtx_i/gtxe1_i LOC=GTXE1_X0Y14;
 #INST gtx_inst/sfp_gtx_inst/gtx_trig_1b_sfp_gtx_i/gtxe1_i LOC=GTXE1_X0Y15;
 
-# Uncomment these lines for QPLL MGT ref (QUAD 115 clk0)
-NET "mgt_clk_p_i"           LOC = P6; 
-NET "mgt_clk_n_i"           LOC = P5;
+# QPLL MGT ref (QUAD 115 clk0)
+NET "qpll_mgt_clk_p_i"           LOC = P6; 
+NET "qpll_mgt_clk_n_i"           LOC = P5;
 
-# Uncomment these lines for GBT MGT ref 0 (QUAD 116 clk0)
-#NET "mgt_clk_p_i"           LOC = F6; 
-#NET "mgt_clk_n_i"           LOC = F5;
-
-# Uncomment these lines for GBT MGT ref 1 (QUAD 116 clk1)
-#NET "mgt_clk_p_i"           LOC = H6; 
-#NET "mgt_clk_n_i"           LOC = H5;
+# GBT MGT ref 0 (QUAD 116 clk0)
+NET "gbt_mgt_clk_p_i"            LOC = F6; 
+NET "gbt_mgt_clk_n_i"            LOC = F5;
 
 # track and control link
 NET "mgt_rx_p_i<0>"   LOC = B5;

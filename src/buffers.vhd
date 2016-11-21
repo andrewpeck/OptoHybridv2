@@ -211,7 +211,19 @@ port(
     qpll_clk_o              : out std_logic;
     qpll_reset_i            : in std_logic;    
     qpll_locked_o           : out std_logic;
-    qpll_pll_locked_o       : out std_logic
+
+    --====================--
+    --== MGT ref clocks ==--
+    --====================--
+    
+    qpll_mgt_refclk_p_i     : in std_logic;
+    qpll_mgt_refclk_n_i     : in std_logic;
+    
+    gbt_mgt_refclk_p_i      : in std_logic;
+    gbt_mgt_refclk_n_i      : in std_logic;
+    
+    qpll_mgt_refclk_o       : out std_logic;
+    gbt_mgt_refclk_o        : out std_logic
     
 );
 end buffers;
@@ -294,6 +306,8 @@ architecture Behavioral of buffers is
     signal vfat2_23_sbits       : sbits_t;
     signal vfat2_23_data_out    : std_logic;
 
+    signal qpll_clk_ibufds      : std_logic;
+    
 begin
 
     --==========--
@@ -327,13 +341,43 @@ begin
     
     -- qpll_clk
 
-    qpll_pll_inst : entity work.qpll_pll
+    ibufgds_qpll_clk : IBUFGDS
+    generic map(
+        iostandard      => "lvds_25"
+    )
     port map(
-        qpll_i_p        => qpll_clk_p_i,
-        qpll_i_n        => qpll_clk_n_i,
-        qpll_clk_o      => qpll_clk_o,
-        qpll_locked_o   => qpll_pll_locked_o
-    );    
+        I   => qpll_clk_p_i,
+        IB  => qpll_clk_n_i,
+        O   => qpll_clk_ibufds
+    );
+    
+    i_bufg_clk_gbt_ttc : BUFG
+    port map(
+        I   => qpll_clk_ibufds,
+        O   => qpll_clk_o
+    );
+
+    --====================--
+    --== MGT ref clocks ==--
+    --====================--
+
+    ibufds_gtxe1_qpll : ibufds_gtxe1
+    port map(
+        o       => qpll_mgt_refclk_o,
+        odiv2   => open,
+        ceb     => '0',
+        i       => qpll_mgt_refclk_p_i,
+        ib      => qpll_mgt_refclk_n_i
+    );
+
+    ibufds_gtxe1_gbt : ibufds_gtxe1
+    port map(
+        o       => gbt_mgt_refclk_o,
+        odiv2   => open,
+        ceb     => '0',
+        i       => gbt_mgt_refclk_p_i,
+        ib      => gbt_mgt_refclk_n_i
+    );
 
     --==================--
     --== MCLK signals ==--

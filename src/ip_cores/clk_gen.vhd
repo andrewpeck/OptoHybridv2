@@ -64,6 +64,7 @@
 -- "Input Clock   Freq (MHz)    Input Jitter (UI)"
 ------------------------------------------------------------------------------
 -- __primary__________40.000____________0.010
+-- _secondary____________40____________0.010
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -77,20 +78,26 @@ use unisim.vcomponents.all;
 entity clk_gen is
 port
  (-- Clock in ports
-  clk_i           : in     std_logic;
+  clk_gbt_i           : in     std_logic;
+  clk_qpll_i           : in     std_logic;
+  clk_in_sel_i           : in     std_logic;
   -- Clock out ports
   ref_clk_o          : out    std_logic;
   clk_1x_o          : out    std_logic;
   clk_2x_o          : out    std_logic;
-  clk_4x_o          : out    std_logic
+  clk_4x_o          : out    std_logic;
+  -- Status and control signals
+  reset_i             : in     std_logic;
+  locked_o            : out    std_logic
  );
 end clk_gen;
 
 architecture xilinx of clk_gen is
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of xilinx : architecture is "clk_gen,clk_wiz_v3_6,{component_name=clk_gen,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,feedback_source=FDBK_AUTO,primtype_sel=MMCM_ADV,num_out_clk=4,clkin1_period=25.000,clkin2_period=10.0,use_power_down=false,use_reset=false,use_locked=false,use_inclk_stopped=false,use_status=false,use_freeze=false,use_clk_valid=false,feedback_type=SINGLE,clock_mgr_type=MANUAL,manual_override=false}";
+  attribute CORE_GENERATION_INFO of xilinx : architecture is "clk_gen,clk_wiz_v3_6,{component_name=clk_gen,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=true,use_dyn_reconfig=false,feedback_source=FDBK_AUTO,primtype_sel=MMCM_ADV,num_out_clk=4,clkin1_period=25.000,clkin2_period=25.000,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,use_status=false,use_freeze=false,use_clk_valid=false,feedback_type=SINGLE,clock_mgr_type=MANUAL,manual_override=false}";
   -- Input clock buffering / unused connectors
   signal clkin1      : std_logic;
+  signal clkin2      : std_logic;
   -- Output clock buffering / unused connectors
   signal clkfbout         : std_logic;
   signal clkfbout_buf     : std_logic;
@@ -112,7 +119,6 @@ architecture xilinx of clk_gen is
   -- Dynamic phase shift unused signals
   signal psdone_unused    : std_logic;
   -- Unused status signals
-  signal locked_unused    : std_logic;
   signal clkfbstopped_unused : std_logic;
   signal clkinstopped_unused : std_logic;
 begin
@@ -123,8 +129,12 @@ begin
   clkin1_buf : BUFG
   port map
    (O => clkin1,
-    I => clk_i);
+    I => clk_gbt_i);
 
+  clkin2_buf : BUFG
+  port map
+   (O => clkin2,
+    I => clk_qpll_i);
 
   -- Clocking primitive
   --------------------------------------
@@ -159,7 +169,9 @@ begin
     CLKOUT3_DUTY_CYCLE   => 0.500,
     CLKOUT3_USE_FINE_PS  => FALSE,
     CLKIN1_PERIOD        => 25.000,
-    REF_JITTER1          => 0.010)
+    REF_JITTER1          => 0.010,
+    CLKIN2_PERIOD        => 25.000,
+    REF_JITTER2          => 0.010)
   port map
     -- Output clocks
    (CLKFBOUT            => clkfbout,
@@ -178,9 +190,8 @@ begin
     -- Input clock control
     CLKFBIN             => clkfbout_buf,
     CLKIN1              => clkin1,
-    CLKIN2              => '0',
-    -- Tied to always select the primary input clock
-    CLKINSEL            => '1',
+    CLKIN2              => clkin2,
+    CLKINSEL            => clk_in_sel_i,
     -- Ports for dynamic reconfiguration
     DADDR               => (others => '0'),
     DCLK                => '0',
@@ -195,11 +206,11 @@ begin
     PSINCDEC            => '0',
     PSDONE              => psdone_unused,
     -- Other control and status signals
-    LOCKED              => locked_unused,
+    LOCKED              => locked_o,
     CLKINSTOPPED        => clkinstopped_unused,
     CLKFBSTOPPED        => clkfbstopped_unused,
     PWRDWN              => '0',
-    RST                 => '0');
+    RST                 => reset_i);
 
   -- Output buffering
   -------------------------------------

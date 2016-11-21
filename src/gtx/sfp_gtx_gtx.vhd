@@ -107,6 +107,7 @@ port
     PLLRXRESET_IN                           : in   std_logic;
     RXPLLLKDET_OUT                          : out  std_logic;
     RXRESETDONE_OUT                         : out  std_logic;
+    RXPLLREFSELDY                           : in   std_logic_vector(2 downto 0);
     ---------------- Transmit Ports - 8b10b Encoder Control Ports --------------
     TXCHARISK_IN                            : in   std_logic_vector(1 downto 0);
     ------------------ Transmit Ports - TX Data Path interface -----------------
@@ -121,9 +122,8 @@ port
     MGTREFCLKTX_IN                          : in   std_logic_vector(1 downto 0);
     PLLTXRESET_IN                           : in   std_logic;
     TXPLLLKDET_OUT                          : out  std_logic;
-    TXRESETDONE_OUT                         : out  std_logic
-
-
+    TXRESETDONE_OUT                         : out  std_logic;
+    TXPLLREFSELDY                           : in   std_logic_vector(2 downto 0)
 );
 
 
@@ -502,14 +502,14 @@ begin
         ------------------------ Receive Ports - RX PLL Ports ----------------------
         GREFCLKRX                       =>      tied_to_ground_i,
         GTXRXRESET                      =>      GTXRXRESET_IN,
-        MGTREFCLKRX                     =>      MGTREFCLKRX_IN,
-        NORTHREFCLKRX                   =>      tied_to_ground_vec_i(1 downto 0),
+        MGTREFCLKRX                     =>      (MGTREFCLKRX_IN(1) & '0'), -- connect to GBT clock
+        NORTHREFCLKRX                   =>      ('0' & MGTREFCLKRX_IN(0)), -- connect to QPLL clock 
         PERFCLKRX                       =>      tied_to_ground_i,
         PLLRXRESET                      =>      PLLRXRESET_IN,
         RXPLLLKDET                      =>      RXPLLLKDET_OUT,
         RXPLLLKDETEN                    =>      tied_to_vcc_i,
         RXPLLPOWERDOWN                  =>      tied_to_ground_i,
-        RXPLLREFSELDY                   =>      tied_to_ground_vec_i(2 downto 0),
+        RXPLLREFSELDY                   =>      RXPLLREFSELDY,
         RXRATE                          =>      tied_to_ground_vec_i(1 downto 0),
         RXRATEDONE                      =>      open,
         RXRESETDONE                     =>      RXRESETDONE_OUT,
@@ -582,15 +582,15 @@ begin
         ----------------------- Transmit Ports - TX PLL Ports ----------------------
         GREFCLKTX                       =>      tied_to_ground_i,
         GTXTXRESET                      =>      GTXTXRESET_IN,
-        MGTREFCLKTX                     =>      MGTREFCLKTX_IN,
-        NORTHREFCLKTX                   =>      tied_to_ground_vec_i(1 downto 0),
+        MGTREFCLKTX                     =>      (MGTREFCLKTX_IN(1) & '0'), -- connect to GBT clock
+        NORTHREFCLKTX                   =>      ('0' & MGTREFCLKTX_IN(0)), -- connect to QPLL clock 
         PERFCLKTX                       =>      tied_to_ground_i,
         PLLTXRESET                      =>      PLLTXRESET_IN,
         SOUTHREFCLKTX                   =>      tied_to_ground_vec_i(1 downto 0),
         TXPLLLKDET                      =>      TXPLLLKDET_OUT,
         TXPLLLKDETEN                    =>      tied_to_vcc_i,
         TXPLLPOWERDOWN                  =>      tied_to_ground_i,
-        TXPLLREFSELDY                   =>      tied_to_ground_vec_i(2 downto 0),
+        TXPLLREFSELDY                   =>      TXPLLREFSELDY,
         TXRATE                          =>      tied_to_ground_vec_i(1 downto 0),
         TXRATEDONE                      =>      open,
         TXRESETDONE                     =>      TXRESETDONE_OUT,

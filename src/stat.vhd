@@ -34,7 +34,8 @@ port(
     
     --
     qpll_locked_i       : in std_logic;
-    qpll_pll_locked_i   : in std_logic
+    qpll_pll_locked_i   : in std_logic;
+    gbt_pll_locked_i    : in std_logic
     
 );
 end stat;
@@ -93,7 +94,7 @@ begin
     --== Mapping ==--
     --=============--
     
-    reg_data(0) <= x"20161115";
+    reg_data(0) <= x"20161121";
     
     reg_data(1) <= (0 => qpll_locked_i, others => '0');
     

@@ -63,6 +63,7 @@
 -- "Input Clock   Freq (MHz)    Input Jitter (UI)"
 ------------------------------------------------------------------------------
 -- __primary__________40.000____________0.010
+-- _secondary____________40____________0.010
 
 
 -- The following code must appear in the VHDL architecture header:
@@ -70,12 +71,17 @@
 component clk_gen
 port
  (-- Clock in ports
-  clk_i           : in     std_logic;
+  clk_gbt_i           : in     std_logic;
+  clk_qpll_i           : in     std_logic;
+  clk_in_sel_i           : in     std_logic;
   -- Clock out ports
   ref_clk_o          : out    std_logic;
   clk_1x_o          : out    std_logic;
   clk_2x_o          : out    std_logic;
-  clk_4x_o          : out    std_logic
+  clk_4x_o          : out    std_logic;
+  -- Status and control signals
+  reset_i             : in     std_logic;
+  locked_o            : out    std_logic
  );
 end component;
 
@@ -86,10 +92,15 @@ end component;
 your_instance_name : clk_gen
   port map
    (-- Clock in ports
-    clk_i => clk_i,
+    clk_gbt_i => clk_gbt_i,
+    clk_qpll_i => clk_qpll_i,
+    CLK_IN_SEL => CLK_IN_SEL,
     -- Clock out ports
     ref_clk_o => ref_clk_o,
     clk_1x_o => clk_1x_o,
     clk_2x_o => clk_2x_o,
-    clk_4x_o => clk_4x_o);
+    clk_4x_o => clk_4x_o,
+    -- Status and control signals
+    reset_i  => reset_i,
+    locked_o => locked_o);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------

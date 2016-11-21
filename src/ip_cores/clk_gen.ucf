@@ -52,6 +52,8 @@
 #----------------------------------------------------------------
 NET "CLK_IN1" TNM_NET = "CLK_IN1";
 TIMESPEC "TS_CLK_IN1" = PERIOD "CLK_IN1" 25.000 ns HIGH 50% INPUT_JITTER 250.0ps;
+NET "CLK_IN2" TNM_NET = "CLK_IN2";
+TIMESPEC "TS_CLK_IN2" = PERIOD "CLK_IN2" 25.000 ns HIGH 50% INPUT_JITTER 250.0ps;
 
 
 # FALSE PATH constraints 

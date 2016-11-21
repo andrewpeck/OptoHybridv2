@@ -10,7 +10,9 @@ module   gem_fiber_out #(parameter SIM_SPEEDUP = 0) (
   input [55:0]  GEM_DATA,      // 56 bit GEM data
   input         GEM_OVERFLOW,  //  1 bit GEM has more than 8 clusters
 
-  input         TRG_TX_REFCLK, // 160 MHz Reference Clock from QPLL
+  input         TRG_TX_REFCLK0, // 160 MHz Reference Clock from QPLL
+  input         TRG_TX_REFCLK1, // 160 MHz Reference Clock from QPLL
+  input         TRG_TX_REFCLK_SEL, // 160 MHz Reference Clock from QPLL
   input         TRG_TXUSRCLK,  // 160 MHz (derived from TXOUTCLK)
   input         TRG_CLK80,     // 80  MHz (derived from TXOUTCLK)
   input         TRG_GTXTXRST,  // GTX Transmit Data Reset
@@ -104,7 +106,11 @@ assign tx_dly_align_mon_ena = 1'b0;
     .GTX0_TXPMASETPHASE_IN          (tx_pmasetphase),
     //--------------------- Transmit Ports - TX PLL Ports ----------------------
     .GTX0_GTXTXRESET_IN             (TRG_GTXTXRST),
-    .GTX0_MGTREFCLKTX_IN            (TRG_TX_REFCLK),
+
+    .GTX0_MGTREFCLKTX_IN0           (TRG_TX_REFCLK0),
+    .GTX0_MGTREFCLKTX_IN1           (TRG_TX_REFCLK1),
+    .GTX0_MGTREFCLKSEL_IN           (TRG_TX_REFCLK_SEL),
+
     .GTX0_PLLTXRESET_IN             (TRG_TX_PLLRST),
     .GTX0_TXPLLLKDET_OUT            (TRG_TX_PLL_LOCK),
     .GTX0_TXRESETDONE_OUT           (TRG_TXRESETDONE)

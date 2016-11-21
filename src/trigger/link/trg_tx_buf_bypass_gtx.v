@@ -98,12 +98,16 @@ module TRG_TX_BUF_BYPASS_GTX # (
   //--------------------- Transmit Ports - TX PLL Ports ----------------------
   input           GTXTXRESET_IN,
   input   [1:0]   MGTREFCLKTX_IN,
+  input           MGTREFCLKSEL_IN,
   input           PLLTXRESET_IN,
   output          TXPLLLKDET_OUT,
   output          TXRESETDONE_OUT
 );
 
 //***************************** Wire Declarations *****************************
+
+wire [2:0] txpllrefseldy = (MGTREFCLKSEL_IN) ? 3'b101 : 3'b000; // 100 = South Reference, 000 = MGT reference
+
 
 // ground and vcc signals
 wire            tied_to_ground_i;
@@ -526,15 +530,15 @@ gtxe1_i (
   //--------------------- Transmit Ports - TX PLL Ports ----------------------
   .GREFCLKTX                      (tied_to_ground_i),
   .GTXTXRESET                     (GTXTXRESET_IN),
-  .MGTREFCLKTX                    (MGTREFCLKTX_IN),
-  .NORTHREFCLKTX                  (tied_to_ground_vec_i[1:0]),
+  .MGTREFCLKTX                    ({1'b0, MGTREFCLKTX_IN[0]}), // connect to QPLL clock (this quad)
+  .NORTHREFCLKTX                  (tied_to_ground_vec_i[1:0]), 
   .PERFCLKTX                      (tied_to_ground_i),
   .PLLTXRESET                     (PLLTXRESET_IN),
-  .SOUTHREFCLKTX                  (tied_to_ground_vec_i[1:0]),
+  .SOUTHREFCLKTX                  ({MGTREFCLKTX_IN[1],1'b0}),  // connect to GBT clock from quad 116
   .TXPLLLKDET                     (TXPLLLKDET_OUT),
   .TXPLLLKDETEN                   (tied_to_vcc_i),
   .TXPLLPOWERDOWN                 (tied_to_ground_i),
-  .TXPLLREFSELDY                  (tied_to_ground_vec_i[2:0]),
+  .TXPLLREFSELDY                  (txpllrefseldy),
   .TXRATE                         (tied_to_ground_vec_i[1:0]),
   .TXRATEDONE                     (),
   .TXRESETDONE                    (TXRESETDONE_OUT),

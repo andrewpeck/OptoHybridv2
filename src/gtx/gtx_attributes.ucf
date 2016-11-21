@@ -282,5 +282,10 @@ NET "gtx_clk" TNM_NET = "gtx_clk";
 TIMESPEC "TS_gtx_clk" = PERIOD "gtx_clk" 6.25;
 
 # User Clock Constraints
-NET "gtx_inst/mgt_refclk" TNM_NET = "mgt_refclk";
-TIMESPEC "TS_mgt_refclk" = PERIOD "mgt_refclk" 6.25;
+
+NET "qpll_mgt_refclk" TNM_NET = "qpll_mgt_refclk";
+TIMESPEC "TS_qpll_mgt_refclk" = PERIOD "qpll_mgt_refclk" 6.25;
+
+NET "gbt_mgt_refclk" TNM_NET = "gbt_mgt_refclk";
+TIMESPEC "TS_gbt_mgt_refclk" = PERIOD "gbt_mgt_refclk" 6.25;
+

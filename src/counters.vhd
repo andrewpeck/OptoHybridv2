@@ -57,6 +57,7 @@ port(
     
     -- QPLL
     qpll_locked_i       : in std_logic;
+    gbt_pll_locked_i    : in std_logic;
     qpll_pll_locked_i   : in std_logic
     
 );
